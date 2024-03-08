@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AMBEApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AMBEApp"
+    xmlns:pages ="clr-namespace:AMBEApp.Pages"
+    Shell.FlyoutBehavior="Flyout"
+    Title="AMBEApp">
+
+    <Shell.FlyoutHeader>
+        <Image Source="ramgarlogo.jpg" WidthRequest="120" Margin="10" BackgroundColor="MediumPurple"></Image>
+    </Shell.FlyoutHeader>
+
+    <ShellContent
+        Icon="home.svg"
+        Title="Inicio"        
+        ContentTemplate="{DataTemplate pages:HomePage}"
+        Route="HomePage"         
+        />
+
+    <ShellContent
+         Icon="stand_by.svg"
+         Title="Perfil"        
+         ContentTemplate="{DataTemplate pages:PerfilPage}"
+         Route="PerfilPage"         
+         />
+
+    <ShellContent
+         Icon="stand_by.svg"
+         Title="Login"        
+         ContentTemplate="{DataTemplate pages:LoginPage}"
+         Route="LoginPage"
+         IsVisible="False"
+         />
+
+    <MenuItem IconImageSource="stand_by.svg" Text="Cerrar Sesión" Clicked="CerrarSesion_Clicked">
+    </MenuItem>
+
+    <Shell.FlyoutFooter>
+        <Label Text="AMBEApp v1.0" HorizontalOptions="CenterAndExpand" BackgroundColor="MediumPurple" TextColor="White" />
+    </Shell.FlyoutFooter>
+
+</Shell>
