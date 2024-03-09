@@ -1,6 +1,7 @@
 ﻿
 using AMBEApp.Pages;
 using Auth0.OidcClient;
+using System.Diagnostics;
 
 namespace AMBEApp
 {
@@ -10,7 +11,8 @@ namespace AMBEApp
         public AppShell(Auth0Client client)
         {
             auth0Client = client;
-            InitializeComponent();            
+            InitializeComponent();
+            
         }
 
         private async void CerrarSesion_Clicked(object sender, EventArgs e)
@@ -20,6 +22,27 @@ namespace AMBEApp
             {
                 App.Current.MainPage = new LoginPage(auth0Client);
                 await Navigation.PushAsync(new LoginPage(auth0Client));
+            }
+        }
+
+        protected override void OnNavigating(ShellNavigatingEventArgs args)
+        {
+            base.OnNavigating(args);
+
+            if (args.Source == ShellNavigationSource.ShellItemChanged)
+            {
+                try
+                {
+                    base.OnNavigating(args);
+                }
+                catch (System.MissingMethodException ex)
+                {
+                    // Manejar la excepción aquí
+                    Console.WriteLine("Se produjo una excepción durante la navegación a la página: " + ex.Message);
+
+                    // Detener la navegación para evitar que se lance la excepción
+                    args.Cancel();
+                }
             }
         }
     }

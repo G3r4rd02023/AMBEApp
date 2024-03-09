@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AMBEApp.Pages.RegistroPage"
+             Title="RegistroPage"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center" Padding="20">
+            <Image Source="ramgarlogo.jpg" HeightRequest="79" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" />
+
+            <StackLayout Spacing="10" BackgroundColor="White" WidthRequest="330">
+                <Entry x:Name="TxtPrimerNombre" Placeholder="Primer nombre" />
+                <Entry x:Name="TxtSegundoNombre" Placeholder="Segundo nombre" />
+                <Entry x:Name="TxtPrimerApellido" Placeholder="Primer apellido" />
+                <Entry x:Name="TxtSegundoApellido" Placeholder="Segundo apellido" />
+                <Entry x:Name="TxtCorreo" Placeholder="Correo Electronico" Keyboard="Email"/>
+
+                <Label Text="Fecha de Nacimiento:" TextColor="Black" HorizontalTextAlignment="Start" />
+                <DatePicker x:Name="DpFechaNacimiento" TextColor="Black" />
+
+                <Label Text="Género:" TextColor="Black" HorizontalTextAlignment="Start" />
+                <FlexLayout Direction="Row" AlignItems="Center">
+                    <Label Text="M:" TextColor="Black"/>
+                    <CheckBox x:Name="ChkMasculino" Color="Black" />
+                    <Label Text="F:" TextColor="Black"/>
+                    <CheckBox x:Name="ChkFemenino" Color="Black" />
+                </FlexLayout>
+
+
+                <Picker x:Name="pickerInstituto" Title="Seleccionar Instituto" TextColor="Black" />
+                <Picker x:Name="pickerTipoPersona" Title="Seleccionar Tipo de Persona" TextColor="Black" />
+
+                <Button Text="Registrar" Clicked="RegistrarUsuario" HorizontalOptions="Center" BackgroundColor="Purple" />
+            </StackLayout>
+        </FlexLayout>
+    </ScrollView>
+</ContentPage>

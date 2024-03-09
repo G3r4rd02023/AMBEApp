@@ -19,6 +19,10 @@
         Route="HomePage"         
         />
 
+    
+    <ShellContent Route="RegistroPage" Title="Registro" ContentTemplate="{DataTemplate pages:RegistroPage}" />
+
+
     <ShellContent
          Icon="stand_by.svg"
          Title="Perfil"        
