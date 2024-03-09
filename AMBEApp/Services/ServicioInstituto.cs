@@ -59,5 +59,28 @@ namespace AMBEApp.Services
                 return "Error";
             }
         }
+
+        public async Task<bool> InstitutoExiste(string nombreInstituto)
+        {
+            try
+            {
+                var institutos = await ObtenerLista();
+                var institutoEncontrado = institutos.FirstOrDefault(u => u.NombreInstituto == nombreInstituto);
+
+                if (institutoEncontrado != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener los roles: {ex.Message}");
+                return false;
+            }
+        }
     }
 }

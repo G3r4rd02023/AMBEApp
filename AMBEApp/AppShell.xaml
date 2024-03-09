@@ -19,7 +19,13 @@
         Route="HomePage"         
         />
 
-    
+    <ShellContent
+         Icon="home.svg"
+         Title="Institutos"        
+         ContentTemplate="{DataTemplate pages:InstitutosPage}"
+         Route="InstitutosPage"         
+         />
+
     <ShellContent Route="RegistroPage" Title="Registro" ContentTemplate="{DataTemplate pages:RegistroPage}" />
 
 

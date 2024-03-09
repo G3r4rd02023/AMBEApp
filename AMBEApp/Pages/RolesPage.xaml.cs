@@ -1,7 +1,5 @@
-using AMBEApp.Models;
 using AMBEApp.Services;
 using AMBEApp.ViewModels;
-using System.Text.Json;
 
 namespace AMBEApp.Pages;
 
@@ -9,8 +7,8 @@ public partial class RolesPage : ContentPage
 {
     private readonly RolesViewModel _viewModel;
     public RolesPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         _viewModel = new RolesViewModel();
         BindingContext = _viewModel;
         CargarRoles();
@@ -18,18 +16,9 @@ public partial class RolesPage : ContentPage
 
     private async void CargarRoles()
     {
-        var registros = await ObtenerRoles();
+        ServicioRoles roles = new();
+        var registros = await roles.ObtenerLista();
         _viewModel.Roles = registros;
-    }
-
-    private async Task<List<Roles>> ObtenerRoles()
-    {
-        var httpClient = new HttpClient();
-        var response = await httpClient.GetAsync("https://ambetest.somee.com/api/Roles");
-        response.EnsureSuccessStatusCode();
-        var responseBody = await response.Content.ReadAsStringAsync();
-
-        return JsonSerializer.Deserialize<List<Roles>>(responseBody);
     }
 
     private async void CrearRol_Clicked(object sender, EventArgs e)
