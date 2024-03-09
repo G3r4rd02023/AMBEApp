@@ -95,10 +95,7 @@ public partial class RegistroPage : ContentPage
                 await DisplayAlert("Error", "Por favor, completa todos los campos.", "OK");
                 return;
             }
-            
-
-
-            // Crear un objeto para representar al usuario
+                        
             var persona = new Personas
             {
                 PrimerNombre = primerNombre,
@@ -135,7 +132,7 @@ public partial class RegistroPage : ContentPage
                 {
                     await DisplayAlert("Éxito", "Usuario registrado correctamente, tu perfil necesita ser aprobado por el administrador", "OK");               
                     int idUsuario = await servicioUsuario.ObtenerIdUsuario(_usuario);
-                    //ServicioBitacora.AgregarRegistro(idUsuario, idInstituto, "Registro", "Usuario");
+                    ServicioBitacora.AgregarRegistro(idUsuario, idInstituto, "Registro", "Usuario");
                     await Navigation.PushAsync(new LoginPage(auth0Client));
                 }
                 else

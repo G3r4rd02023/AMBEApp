@@ -1,7 +1,6 @@
 ﻿
 using AMBEApp.Pages;
 using Auth0.OidcClient;
-using System.Diagnostics;
 
 namespace AMBEApp
 {
@@ -12,7 +11,7 @@ namespace AMBEApp
         {
             auth0Client = client;
             InitializeComponent();
-            
+
         }
 
         private async void CerrarSesion_Clicked(object sender, EventArgs e)

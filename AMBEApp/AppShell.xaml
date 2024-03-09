@@ -31,6 +31,21 @@
          />
 
     <ShellContent
+          Icon="clipboard.svg"
+          Title="Bitacora"        
+          ContentTemplate="{DataTemplate pages:BitacoraPage}"
+          Route="BitacoraPage"         
+          />
+
+    <ShellContent
+          Icon="clipboard.svg"
+          Title="Roles"        
+          ContentTemplate="{DataTemplate pages:RolesPage}"
+          Route="RolesPage"         
+          />
+
+
+    <ShellContent
          Icon="stand_by.svg"
          Title="Login"        
          ContentTemplate="{DataTemplate pages:LoginPage}"

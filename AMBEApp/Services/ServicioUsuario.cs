@@ -111,5 +111,20 @@ namespace AMBEApp.Services
                 return -1;
             }
         }
+
+        public async Task<string> ObtenerNombreUsuario(int idUsuario)
+        {
+            try
+            {
+                var usuarios = await ObtenerLista();
+                var usuarioEncontrado = usuarios.FirstOrDefault(r => r.IdUsuario == idUsuario);
+                return usuarioEncontrado != null ? usuarioEncontrado.NombreUsuario : "Usuario no encontrado";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener el nombre del usuario: {ex.Message}");
+                return "Error";
+            }
+        }
     }
 }

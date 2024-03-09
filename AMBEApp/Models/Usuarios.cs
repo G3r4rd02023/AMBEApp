@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using AMBEApp.Services;
+using System.Text.Json.Serialization;
 
 namespace AMBEApp.Models
 {
@@ -44,13 +45,13 @@ namespace AMBEApp.Models
         [JsonPropertyName("fechaModificacion")]
         public DateTime FechaModificacion { get; set; }
 
-        //public Task<string> NombreRol
-        //{
-        //    get
-        //    {
-        //       // ServicioRoles servicioRoles = new();
-        //       // return servicioRoles.ObtenerNombreRol(IdRol); 
-        //    }
-        //}
+        public Task<string> NombreRol
+        {
+            get
+            {
+                ServicioRoles servicioRoles = new();
+                return servicioRoles.ObtenerNombreRol(IdRol); 
+            }
+        }
     }
 }
