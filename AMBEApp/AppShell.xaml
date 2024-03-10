@@ -20,6 +20,13 @@
         />
 
     <ShellContent
+         Icon="time.svg"
+         Title="Objetos"        
+         ContentTemplate="{DataTemplate pages:ObjetosPage}"
+         Route="ObjetosPage"         
+         />
+
+    <ShellContent
          Icon="home.svg"
          Title="Institutos"        
          ContentTemplate="{DataTemplate pages:InstitutosPage}"

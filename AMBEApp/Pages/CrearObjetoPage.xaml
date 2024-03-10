@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AMBEApp.Pages.CrearInstitutoPage"
-             Title="CrearInstitutoPage">
+             x:Class="AMBEApp.Pages.CrearObjetoPage"
+             Title="CrearObjetoPage">
     <ScrollView>
         <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center" Padding="20">
             <Image Source="ramgarlogo.jpg" HeightRequest="79" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" />
 
             <StackLayout Spacing="10" BackgroundColor="White" WidthRequest="330">
-                <Entry x:Name="TxtNombreInstituto" Placeholder="Nombre Instituto" />
+                <Picker x:Name="pickerInstituto" Title="Seleccionar Instituto" TextColor="Black" />
+                <Entry x:Name="TxtObjeto" Placeholder="Nombre Objeto" />
                 <Entry x:Name="TxtDescripcion" Placeholder="Descripcion" />
-                <Entry x:Name="TxtRTN" Placeholder="RTN" />
-                <Entry x:Name="TxtTelefono" Placeholder="Telefono" />
-                <Entry x:Name="TxtDireccion" Placeholder="Direccion" />
-                <Entry x:Name="TxtEmail" Placeholder="Email" />
-               
-                <Button Text="Crear" Clicked="CrearInstituto" HorizontalOptions="Center" BackgroundColor="Purple" />
+                <Entry x:Name="TxtTipoObjeto" Placeholder="Tipo Objeto" />
+                               
+                <Button Text="Crear" Clicked="CrearObjeto" HorizontalOptions="Center" BackgroundColor="Purple" />
             </StackLayout>
         </FlexLayout>
     </ScrollView>

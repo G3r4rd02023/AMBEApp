@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:AMBEApp.ViewModels"
-             x:Class="AMBEApp.Pages.InstitutosPage"
-             Title="InstitutosPage">
+              xmlns:viewModels="clr-namespace:AMBEApp.ViewModels"
+             x:Class="AMBEApp.Pages.ObjetosPage"
+             Title="ObjetosPage">
 
     <ContentPage.BindingContext>
-        <viewModels:InstitutoViewModel />
+        <viewModels:ObjetosViewModel />
     </ContentPage.BindingContext>
-    
+
+   
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <CollectionView ItemsSource="{Binding Institutos}">
+                <CollectionView ItemsSource="{Binding Objetos}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Padding="10" Orientation="Horizontal" BackgroundColor="LightGray" Margin="5">
                                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                    <Label Text="{Binding NombreInstituto}" FontAttributes="Bold" HorizontalOptions="Center" />
-                                    <Label Text="{Binding Rtn}" HorizontalOptions="Center" />
-                                    <Label Text="{Binding Telefono}" HorizontalOptions="Center" />
-                                    <Label Text="{Binding Direccion}" HorizontalOptions="Center" />
-                                    <Label Text="{Binding Email}" HorizontalOptions="Center" />
+                                    <Label Text="{Binding IdInstituto}" FontAttributes="Bold" HorizontalOptions="Center" />
+                                    <Label Text="{Binding Objeto}" HorizontalOptions="Center" />
                                     <Label Text="{Binding Descripcion}" HorizontalOptions="Center" />
+                                    <Label Text="{Binding TipoObjeto}" HorizontalOptions="Center" />
                                 </StackLayout>
                             </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-                <Button Text="Crear Nuevo Instituto" Clicked="CrearInstituto_Clicked" BackgroundColor="MediumPurple" HorizontalOptions="CenterAndExpand" />
+                <Button Text="Crear Nuevo Objeto" Clicked="CrearObjeto_Clicked" BackgroundColor="MediumPurple" HorizontalOptions="CenterAndExpand" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
