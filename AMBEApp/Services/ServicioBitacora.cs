@@ -1,11 +1,13 @@
 ﻿using AMBEApp.Models;
+using System.Text;
 using System.Text.Json;
 
 namespace AMBEApp.Services
 {
     public class ServicioBitacora
     {
-        public async static void AgregarRegistro(int idUsuario, int idInstituto, string tipoAccion, string tabla)
+       
+        public static async Task<bool> AgregarRegistro(int idUsuario, int idInstituto, string tipoAccion, string tabla)
         {
 
             var registro = new Bitacora
@@ -17,32 +19,27 @@ namespace AMBEApp.Services
                 Fecha = DateTime.Now
             };
 
-
-            var jsonBitacora = JsonSerializer.Serialize(registro);
-            using var httpClient = new HttpClient();
-            var apiUrl = "https://ambetest.somee.com/api/Bitacora";
             try
             {
-
-                var content = new StringContent(jsonBitacora, System.Text.Encoding.UTF8, "application/json");
-
-
-                var response = await httpClient.PostAsync(apiUrl, content);
+                var jsonBitacora = JsonSerializer.Serialize(registro);
+                HttpClient httpClient = new();
+                var content = new StringContent(jsonBitacora, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await httpClient.PostAsync("https://ambetest.somee.com/api/Bitacora", content);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine("Entrada de bitácora enviada exitosamente a la API.");
+                    return true;
                 }
                 else
                 {
-                    Console.WriteLine($"Error al enviar la entrada de bitácora a la API: {response.StatusCode}");
+                    return false;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al enviar la entrada de bitácora a la API: {ex.Message}");
+                Console.WriteLine($"Error al registrar bitacora: {ex.Message}");
+                return false;
             }
-
         }
 
     }

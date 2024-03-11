@@ -45,6 +45,22 @@ namespace AMBEApp.Services
             }
         }
 
+        public async Task<int> ObtenerIdInstituto(string nombreUsuario)
+        {
+            try
+            {
+                ServicioUsuario servicioUsuario = new();
+                var usuarios = await servicioUsuario.ObtenerLista();
+                var usuario = usuarios.FirstOrDefault(r => r.NombreUsuario == nombreUsuario);
+                return usuario != null ? usuario.IdInstituto : -1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener los institutos: {ex.Message}");
+                return -1;
+            }
+        }
+
         public async Task<string> ObtenerNombreInstituto(int idInstituto)
         {
             try

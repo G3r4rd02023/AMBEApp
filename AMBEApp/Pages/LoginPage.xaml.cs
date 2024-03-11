@@ -45,8 +45,8 @@ public partial class LoginPage : ContentPage
             }
             //ServicioInstituto servicioInstituto = new();
             //int idUsuario = await servicioUsuario.ObtenerIdUsuario(nombreUsuario);
-            //int idInstituto = await servicioInstituto.ObtenerIdInstituto(nombreUsuario);
-            //ServicioBitacora.AgregarRegistro(idUsuario, 1, "Inicio Sesión", "Sistema");
+            //int idInstituto = await servicioInstituto.ObtenerIdInstituto(nombreUsuario);            
+            //await ServicioBitacora.AgregarRegistro(idUsuario, idInstituto, "Inicio Sesión", "Sistema");
         }
         else
         {

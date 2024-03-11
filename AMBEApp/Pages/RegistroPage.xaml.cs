@@ -132,7 +132,7 @@ public partial class RegistroPage : ContentPage
                 {
                     await DisplayAlert("Éxito", "Usuario registrado correctamente, tu perfil necesita ser aprobado por el administrador", "OK");               
                     int idUsuario = await servicioUsuario.ObtenerIdUsuario(_usuario);
-                    ServicioBitacora.AgregarRegistro(idUsuario, idInstituto, "Registro", "Usuario");
+                    await ServicioBitacora.AgregarRegistro(idUsuario, idInstituto, "Registro", "Usuario");
                     await Navigation.PushAsync(new LoginPage(auth0Client));
                 }
                 else
