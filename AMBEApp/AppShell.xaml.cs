@@ -23,7 +23,10 @@ namespace AMBEApp
         {
             var viewModel = (MenuViewModel)BindingContext;
             ServicioUsuario servicioUsuario = new();
-            viewModel.EsAdmin = await servicioUsuario.EsAdmin();
+            viewModel.EsAdmin = await servicioUsuario.VerificarRol(1);
+            viewModel.EsAdminInstituto = await servicioUsuario.VerificarRol(2);
+            viewModel.EsCliente = await servicioUsuario.VerificarRol(3);
+            viewModel.EsEmpleado = await servicioUsuario.VerificarRol(4) || await servicioUsuario.VerificarRol(5);
         }
 
         private async void CerrarSesion_Clicked(object sender, EventArgs e)

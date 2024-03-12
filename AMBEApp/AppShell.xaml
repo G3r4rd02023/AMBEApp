@@ -17,7 +17,7 @@
         Icon="home.svg"
         Title="Inicio"        
         ContentTemplate="{DataTemplate pages:HomePage}"
-        Route="HomePage"         
+        Route="HomePage"       
         />
 
     <ShellContent
@@ -25,7 +25,7 @@
          Title="Objetos"        
          ContentTemplate="{DataTemplate pages:ObjetosPage}"
          Route="ObjetosPage"  
-         IsVisible="{Binding EsAdmin}"
+         IsVisible="{Binding EsAdminInstituto}"
          />
 
     <ShellContent
@@ -51,14 +51,15 @@
           Title="Bitacora"        
           ContentTemplate="{DataTemplate pages:BitacoraPage}"
           Route="BitacoraPage"
-          IsVisible="{Binding EsAdmin}"
+          IsVisible="{Binding EsAdminInstituto}"
           />
 
     <ShellContent
           Icon="clipboard.svg"
           Title="Roles"        
           ContentTemplate="{DataTemplate pages:RolesPage}"
-          Route="RolesPage"         
+          Route="RolesPage"  
+          IsVisible="{Binding EsAdminInstituto}"
           />
 
 

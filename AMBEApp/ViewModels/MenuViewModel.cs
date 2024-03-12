@@ -1,17 +1,15 @@
 ﻿using AMBEApp.Services;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AMBEApp.ViewModels
 {
-    public class MenuViewModel: INotifyPropertyChanged
+    public class MenuViewModel : INotifyPropertyChanged
     {
         private bool _esAdmin;
+        private bool _esAdminInstituto;
+        private bool _esEmpleado;
+        private bool _esCliente;
         public bool EsAdmin
         {
             get => _esAdmin;
@@ -25,6 +23,44 @@ namespace AMBEApp.ViewModels
             }
         }
 
+        public bool EsAdminInstituto
+        {
+            get => _esAdminInstituto;
+            set
+            {
+                if (_esAdminInstituto != value)
+                {
+                    _esAdminInstituto = value;
+                    OnPropertyChanged(nameof(EsAdminInstituto));
+                }
+            }
+        }
+
+        public bool EsEmpleado
+        {
+            get => _esEmpleado;
+            set
+            {
+                if (_esEmpleado != value)
+                {
+                    _esEmpleado = value;
+                    OnPropertyChanged(nameof(EsEmpleado));
+                }
+            }
+        }
+
+        public bool EsCliente
+        {
+            get => _esCliente;
+            set
+            {
+                if (_esCliente != value)
+                {
+                    _esCliente = value;
+                    OnPropertyChanged(nameof(EsCliente));
+                }
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -34,7 +70,10 @@ namespace AMBEApp.ViewModels
         public async Task VerificarRolAsync()
         {
             ServicioUsuario servicioUsuario = new();
-            EsAdmin = await servicioUsuario.EsAdmin();
+            EsAdmin = await servicioUsuario.VerificarRol(1);
+            EsAdminInstituto = await servicioUsuario.VerificarRol(2);
+            EsCliente = await servicioUsuario.VerificarRol(3);
+            EsEmpleado = await servicioUsuario.VerificarRol(4) || await servicioUsuario.VerificarRol(5);
         }
     }
 }

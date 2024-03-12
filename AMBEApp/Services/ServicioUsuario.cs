@@ -127,14 +127,14 @@ namespace AMBEApp.Services
             }
         }
 
-        public async Task<bool> EsAdmin()
+        public async Task<bool> VerificarRol(int idRol)
         {
             try
             {
                 var usuarios = await ObtenerLista();
                 var usuarioEncontrado = usuarios.FirstOrDefault(r => r.NombreUsuario == UsuarioAutenticado);
-               
-                if (usuarioEncontrado != null && usuarioEncontrado.IdRol == 1)
+
+                if (usuarioEncontrado != null && usuarioEncontrado.IdRol == idRol)
                 {
                     return true;
                 }
