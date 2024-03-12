@@ -126,5 +126,26 @@ namespace AMBEApp.Services
                 return "Error";
             }
         }
+
+        public async Task<bool> EsAdmin()
+        {
+            try
+            {
+                var usuarios = await ObtenerLista();
+                var usuarioEncontrado = usuarios.FirstOrDefault(r => r.NombreUsuario == UsuarioAutenticado);
+               
+                if (usuarioEncontrado != null && usuarioEncontrado.IdRol == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener el rol del usuario: {ex.Message}");
+                return false;
+            }
+        }
+
     }
 }

@@ -1,5 +1,7 @@
 ﻿
 using AMBEApp.Pages;
+using AMBEApp.Services;
+using AMBEApp.ViewModels;
 using Auth0.OidcClient;
 
 namespace AMBEApp
@@ -7,11 +9,21 @@ namespace AMBEApp
     public partial class AppShell : Shell
     {
         private readonly Auth0Client auth0Client;
+        public MenuViewModel ViewModel { get; set; }
         public AppShell(Auth0Client client)
         {
             auth0Client = client;
             InitializeComponent();
+            ViewModel = new MenuViewModel(); // Instancia de tu ViewModel
+            BindingContext = ViewModel;
+            ConfirmarRol();
+        }
 
+        private async void ConfirmarRol()
+        {
+            var viewModel = (MenuViewModel)BindingContext;
+            ServicioUsuario servicioUsuario = new();
+            viewModel.EsAdmin = await servicioUsuario.EsAdmin();
         }
 
         private async void CerrarSesion_Clicked(object sender, EventArgs e)
