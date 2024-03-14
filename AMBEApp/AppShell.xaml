@@ -64,6 +64,14 @@
 
 
     <ShellContent
+          Icon="clipboard.svg"
+          Title="Usuarios"        
+          ContentTemplate="{DataTemplate pages:UsuariosPage}"
+          Route="UsuariosPage"  
+         
+          />
+
+    <ShellContent
          Icon="stand_by.svg"
          Title="Login"        
          ContentTemplate="{DataTemplate pages:LoginPage}"

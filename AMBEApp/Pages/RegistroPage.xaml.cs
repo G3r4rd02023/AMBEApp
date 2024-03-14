@@ -127,12 +127,12 @@ public partial class RegistroPage : ContentPage
             }
             else
             {
-                bool registroExitoso = await ServicioUsuario.RegistrarUsuario(personaJson);
+                bool registroExitoso = await servicioUsuario.RegistrarUsuario(personaJson);
                 if (registroExitoso)
                 {
                     await DisplayAlert("Éxito", "Usuario registrado correctamente, tu perfil necesita ser aprobado por el administrador", "OK");               
                     int idUsuario = await servicioUsuario.ObtenerIdUsuario(_usuario);
-                    await ServicioBitacora.AgregarRegistro(idUsuario, idInstituto, "Registro", "Usuario");
+                    //await ServicioBitacora.AgregarRegistro(idUsuario, idInstituto, "Registro", "Usuario");
                     await Navigation.PushAsync(new LoginPage(auth0Client));
                 }
                 else

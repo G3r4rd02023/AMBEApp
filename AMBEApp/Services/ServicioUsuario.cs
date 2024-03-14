@@ -16,7 +16,7 @@ namespace AMBEApp.Services
 
         public async Task<List<Usuarios>> ObtenerLista()
         {
-            var client = new HttpClient();
+            using var client = new HttpClient();
             var response = await client.GetAsync(urlApi);
             if (response.IsSuccessStatusCode)
             {
@@ -53,7 +53,7 @@ namespace AMBEApp.Services
         public async Task<bool> UsuarioExiste(string usuario)
         {
             try
-            {               
+            {
                 var usuarios = await ObtenerLista();
                 var user = usuarios.FirstOrDefault(u => u.Usuario == usuario);
 
@@ -73,20 +73,20 @@ namespace AMBEApp.Services
             }
         }
 
-        public static async Task<bool> RegistrarUsuario(string personaJson)
+        public async Task<bool> RegistrarUsuario(string personaJson)
         {
             try
             {
-                var httpClient = new HttpClient();
+                using var httpClient = new HttpClient();
                 var content = new StringContent(personaJson, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await httpClient.PostAsync("https://ambetest.somee.com/api/Usuarios", content);
+                HttpResponseMessage response = await httpClient.PostAsync(urlApi, content);
 
                 if (response.IsSuccessStatusCode)
-                {                                       
+                {
                     return true;
                 }
                 else
-                {                   
+                {
                     return false;
                 }
             }
@@ -96,6 +96,36 @@ namespace AMBEApp.Services
                 return false;
             }
         }
+
+        public async Task<bool> ActualizarUsuario(string userJson, Usuarios user)
+        {
+            try
+            {
+                using var httpClient = new HttpClient();               
+                var content = new StringContent(userJson, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await httpClient.PutAsync($"{urlApi}/{user.IdUsuario}", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Error en la solicitud HTTP: {ex.Message}");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error inesperado: {ex.Message}");
+                return false;
+            }
+        }
+
 
         public async Task<int> ObtenerIdUsuario(string usuario)
         {
