@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:AMBEApp.ViewModels"
+             x:Class="AMBEApp.Pages.Personas.PersonasPage"
+             Title="PersonasPage">
+
+
+    <ContentPage.BindingContext>
+        <viewModels:PersonasViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Image
+                Source="ramgarlogo.jpg"
+                HeightRequest="85"
+                Aspect="AspectFit"
+                SemanticProperties.Description="LOGO DE RANGAR"
+                HorizontalOptions="End"
+                Margin="0,10,10,0"
+                Grid.Row="0" />
+
+           
+
+            <StackLayout
+                Padding="30,0"
+                Spacing="25"
+                Orientation="Vertical"
+                Grid.Row="1">
+
+                <Frame BorderColor="Purple" CornerRadius="5" Padding="5" HasShadow="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Picker x:Name="pickerPersona" Title="Buscar por ..." TextColor="Black" />
+                       
+                    </Grid>
+                </Frame>
+
+                <Frame BorderColor="Purple" CornerRadius="5" Padding="5" HasShadow="True">
+                    <ListView x:Name="PersonasListView" ItemsSource="{Binding Personas}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                        <Label Text="{Binding NombreCompleto}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                        <Button Text=""
+                                                ImageSource="edit_pencil.svg"
+                                                Clicked="OnEditarClicked"
+                                                BackgroundColor="White"
+                                                BorderColor="Purple"
+                                                BorderWidth="1"
+                                                TextColor="Green"
+                                                HeightRequest="40" />
+                                        <Button Text=""
+                                                ImageSource="trash.svg"
+                                                Clicked="OnEliminarClicked"
+                                                BackgroundColor="White"
+                                                BorderColor="Purple"
+                                                BorderWidth="1"
+                                                TextColor="Red"
+                                                HeightRequest="40"
+                                                Margin="5, 0, 0, 0" />
+
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+
+              
+
+                <Button
+                    x:Name="GenerarPdfBtn"
+                    Text="Generar PDF" 
+                    Clicked="OnGenerarPdfClicked"
+                    BackgroundColor="Purple"
+                    TextColor="White"
+                    HorizontalOptions="Fill"
+                    HeightRequest="40" />
+
+                <Button
+                     x:Name="FiltrarPersonasBtn"
+                     Text="Filtrar" 
+                     Clicked="FiltrarPersonas"
+                     BackgroundColor="Purple"
+                     TextColor="White"
+                     HorizontalOptions="Fill"
+                     HeightRequest="40" />
+
+
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -74,6 +74,9 @@
 	  <MauiXaml Update="Pages\Objetos\CrearObjetoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\Personas\PersonasPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Roles\CrearRolPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

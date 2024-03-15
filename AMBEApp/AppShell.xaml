@@ -7,6 +7,7 @@
     xmlns:local="clr-namespace:AMBEApp"
     xmlns:pages ="clr-namespace:AMBEApp.Pages"
     xmlns:tipoViaje ="clr-namespace:AMBEApp.Pages.TipoViajes"
+    xmlns:personas ="clr-namespace:AMBEApp.Pages.Personas"
     Shell.FlyoutBehavior="Flyout"
     Title="AMBEApp">
 
@@ -71,6 +72,14 @@
           Route="UsuariosPage"  
          
           />
+
+    <ShellContent
+       Icon="clipboard.svg"
+       Title="Personas"        
+       ContentTemplate="{DataTemplate personas:PersonasPage}"
+       Route="PersonasPage"  
+      
+       />
 
     <ShellContent
           Icon="clipboard.svg"

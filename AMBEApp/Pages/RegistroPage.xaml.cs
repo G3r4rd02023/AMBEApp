@@ -96,7 +96,7 @@ public partial class RegistroPage : ContentPage
                 return;
             }
                         
-            var persona = new Personas
+            var persona = new Persona
             {
                 PrimerNombre = primerNombre,
                 SegundoNombre = segundoNombre,
