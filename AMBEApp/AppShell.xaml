@@ -6,6 +6,7 @@
     xmlns:viewModels="clr-namespace:AMBEApp.ViewModels"
     xmlns:local="clr-namespace:AMBEApp"
     xmlns:pages ="clr-namespace:AMBEApp.Pages"
+    xmlns:tipoViaje ="clr-namespace:AMBEApp.Pages.TipoViajes"
     Shell.FlyoutBehavior="Flyout"
     Title="AMBEApp">
 
@@ -71,6 +72,13 @@
          
           />
 
+    <ShellContent
+          Icon="clipboard.svg"
+          Title="Tipos de Viaje"        
+          ContentTemplate="{DataTemplate tipoViaje:TipoViajesPage}"
+          Route="TipoViajesPage"     
+      />
+    
     <ShellContent
          Icon="stand_by.svg"
          Title="Login"        

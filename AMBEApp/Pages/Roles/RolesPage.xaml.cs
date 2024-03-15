@@ -33,4 +33,27 @@ public partial class RolesPage : ContentPage
             return;
         }
     }
+
+    private void OnEditarClicked(object sender, EventArgs e)
+    {
+        DisplayAlert("Editar", "Editar Rol", "Aceptar");
+    }
+
+    private void OnEliminarClicked(object sender, EventArgs e)
+    {
+        
+    }
+
+    private void OnSearchIconTapped(object sender, EventArgs e)
+    {
+        DisplayAlert("Búsqueda", "Realizar búsqueda...", "Aceptar");
+    }
+
+    private void OnGenerarPdfClicked(object sender, EventArgs e)
+    {
+    }
+
+    private void OnImprimirClicked(object sender, EventArgs e)
+    {
+    }
 }

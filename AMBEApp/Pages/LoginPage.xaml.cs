@@ -43,10 +43,10 @@ public partial class LoginPage : ContentPage
                 await Shell.Current.GoToAsync("//HomePage");
                 //await Navigation.PushAsync(new HomePage());                
             }
-            //ServicioInstituto servicioInstituto = new();
-            //int idUsuario = await servicioUsuario.ObtenerIdUsuario(nombreUsuario);
-            //int idInstituto = await servicioInstituto.ObtenerIdInstituto(nombreUsuario);            
-            //await ServicioBitacora.AgregarRegistro(idUsuario, idInstituto, "Inicio Sesión", "Sistema");
+            ServicioInstituto servicioInstituto = new();
+            int idUsuario = await servicioUsuario.ObtenerIdUsuario(nombreUsuario);
+            int idInstituto = await servicioInstituto.ObtenerIdInstituto(nombreUsuario);
+            // await ServicioBitacora.AgregarRegistro(idUsuario, idInstituto, "Inicio Sesión", "Sistema");
         }
         else
         {
