@@ -82,6 +82,9 @@
 	  <MauiXaml Update="Pages\Grados\GradosPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\Incidentes\Incidentes.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Institutos\CrearInstitutoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
