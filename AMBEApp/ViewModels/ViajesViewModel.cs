@@ -4,17 +4,17 @@ using System.Runtime.CompilerServices;
 
 namespace AMBEApp.ViewModels
 {
-    public class TipoViajeViewModel : INotifyPropertyChanged
+    public class ViajesViewModel : INotifyPropertyChanged
     {
-        private List<TipoViaje> _tipoViaje;
+        private List<Viajes> _viajes;
 
 
-        public List<TipoViaje> TipoViajes
+        public List<Viajes> Viajes
         {
-            get => _tipoViaje;
+            get => _viajes;
             set
             {
-                _tipoViaje = value;
+                _viajes = value;
                 OnPropertyChanged();
             }
         }
@@ -25,5 +25,6 @@ namespace AMBEApp.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
     }
 }

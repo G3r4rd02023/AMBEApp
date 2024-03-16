@@ -4,26 +4,26 @@ using System.Runtime.CompilerServices;
 
 namespace AMBEApp.ViewModels
 {
-    public class TipoViajeViewModel : INotifyPropertyChanged
+    public class MarcasViewModel : INotifyPropertyChanged
     {
-        private List<TipoViaje> _tipoViaje;
 
+        private List<Marcas> _marcas;
 
-        public List<TipoViaje> TipoViajes
+        public List<Marcas> Marcas
         {
-            get => _tipoViaje;
+            get => _marcas;
             set
             {
-                _tipoViaje = value;
+                _marcas = value;
                 OnPropertyChanged();
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
     }
 }
