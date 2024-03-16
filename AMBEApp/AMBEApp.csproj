@@ -65,14 +65,14 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\cerrar_sesion.png" />
-	  <None Remove="Resources\Images\cerrar_sesionn.jpg" />
+	  <None Remove="Resources\Images\cerrar_sesionn.png" />
 	  <None Remove="Resources\Images\cerrar_sesion_usuario.png" />
 	  <None Remove="Resources\Images\cerrar_sesion_usuarios.jpg" />
 	  <None Remove="Resources\Images\Grados.png" />
 	  <None Remove="Resources\Images\iconos_grados.png" />
 	  <None Remove="Resources\Images\icono_grados.png" />
 	  <None Remove="Resources\Images\perfil.png" />
-	  <None Remove="Resources\Images\perfil_usuario.png" />
+	  <None Remove="Resources\Images\perfil_usuario.jpg" />
 	  <None Remove="Resources\Images\personas.png" />
 	</ItemGroup>
 
