@@ -56,6 +56,8 @@
 
 	<ItemGroup>
 	  <MauiImage Remove="Resources\Images\cerrar_sesion.png" />
+	  <MauiImage Remove="Resources\Images\cerrar_sesion_usuario.png" />
+	  <MauiImage Remove="Resources\Images\cerrar_sesion_usuarios.jpg" />
 	  <MauiImage Remove="Resources\Images\grados.png" />
 	  <MauiImage Remove="Resources\Images\icono_grados.png" />
 	  <MauiImage Remove="Resources\Images\perfil.png" />
@@ -63,7 +65,9 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\cerrar_sesion.png" />
+	  <None Remove="Resources\Images\cerrar_sesionn.jpg" />
 	  <None Remove="Resources\Images\cerrar_sesion_usuario.png" />
+	  <None Remove="Resources\Images\cerrar_sesion_usuarios.jpg" />
 	  <None Remove="Resources\Images\Grados.png" />
 	  <None Remove="Resources\Images\iconos_grados.png" />
 	  <None Remove="Resources\Images\icono_grados.png" />

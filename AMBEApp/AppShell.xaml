@@ -119,7 +119,7 @@
 
     <MenuItem Text="Cerrar Sesión" Clicked="CerrarSesion_Clicked">
         <MenuItem.IconImageSource>
-            <FileImageSource File="cerrar_sesion_usuario.png" />
+            <FileImageSource File="cerrar_sesionn.jpg" />
         </MenuItem.IconImageSource>
     </MenuItem>
 
