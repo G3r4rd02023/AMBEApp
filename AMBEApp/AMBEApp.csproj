@@ -65,7 +65,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\cerrar_sesion.png" />
-	  <None Remove="Resources\Images\cerrar_sesionn.jpg" />
+	  <None Remove="Resources\Images\cerrar_sesionn.png" />
 	  <None Remove="Resources\Images\cerrar_sesion_usuario.png" />
 	  <None Remove="Resources\Images\cerrar_sesion_usuarios.jpg" />
 	  <None Remove="Resources\Images\Grados.png" />
