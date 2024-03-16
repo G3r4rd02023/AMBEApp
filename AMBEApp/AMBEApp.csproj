@@ -72,7 +72,7 @@
 	  <None Remove="Resources\Images\iconos_grados.png" />
 	  <None Remove="Resources\Images\icono_grados.png" />
 	  <None Remove="Resources\Images\perfil.png" />
-	  <None Remove="Resources\Images\perfil_usuario.png" />
+	  <None Remove="Resources\Images\perfil_usuario.jpg" />
 	  <None Remove="Resources\Images\personas.png" />
 	</ItemGroup>
 
