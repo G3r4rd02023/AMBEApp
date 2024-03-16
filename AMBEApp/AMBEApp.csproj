@@ -58,6 +58,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\grados.png" />
+	  <MauiImage Remove="Resources\Images\icono_grados.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\Grados.png" />
+	  <None Remove="Resources\Images\iconos_grados.png" />
+	  <None Remove="Resources\Images\icono_grados.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Auth0.OidcClient.MAUI" Version="1.0.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
@@ -66,6 +77,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Pages\Bitacora\BitacoraPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Grados\GradosPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Institutos\CrearInstitutoPage.xaml">

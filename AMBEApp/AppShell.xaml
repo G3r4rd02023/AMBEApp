@@ -7,6 +7,7 @@
     xmlns:local="clr-namespace:AMBEApp"
     xmlns:pages ="clr-namespace:AMBEApp.Pages"
     xmlns:tipoViaje ="clr-namespace:AMBEApp.Pages.TipoViajes"
+    xmlns:Grados ="clr-namespace:AMBEApp.Pages.Grados"
     xmlns:personas ="clr-namespace:AMBEApp.Pages.Personas"
     Shell.FlyoutBehavior="Flyout"
     Title="AMBEApp">
@@ -87,6 +88,8 @@
           ContentTemplate="{DataTemplate tipoViaje:TipoViajesPage}"
           Route="TipoViajesPage"     
       />
+
+          
     
     <ShellContent
          Icon="stand_by.svg"
@@ -95,6 +98,15 @@
          Route="LoginPage"
          IsVisible="False"
          />
+
+       
+
+       <ShellContent
+     Icon="Resources/Images/iconos_grados.png"
+     Title="Grados"        
+     ContentTemplate="{DataTemplate Grados:GradosPage}"
+      Route="GradosPage"
+        />
 
     <MenuItem IconImageSource="stand_by.svg" Text="Cerrar Sesión" Clicked="CerrarSesion_Clicked">
     </MenuItem>
