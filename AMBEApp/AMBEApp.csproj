@@ -74,6 +74,8 @@
 	  <None Remove="Resources\Images\perfil.png" />
 	  <None Remove="Resources\Images\perfil_usuario.jpg" />
 	  <None Remove="Resources\Images\personas.png" />
+	  <None Remove="Resources\Images\tipo_viajes.png" />
+	  <None Remove="Resources\Images\usuarios.png" />
 	</ItemGroup>
 
 	<ItemGroup>

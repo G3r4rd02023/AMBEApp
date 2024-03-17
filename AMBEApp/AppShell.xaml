@@ -68,7 +68,7 @@
 
 
     <ShellContent
-          Icon="clipboard.svg"
+           Icon="Resources/Images/usuarios.jpg"
           Title="Usuarios"        
           ContentTemplate="{DataTemplate pages:UsuariosPage}"
           Route="UsuariosPage"  
@@ -84,7 +84,7 @@
        />
 
     <ShellContent
-          Icon="clipboard.svg"
+          Icon="Resources/Images/tipo_viajes.png"
           Title="Tipos de Viaje"        
           ContentTemplate="{DataTemplate tipoViaje:TipoViajesPage}"
           Route="TipoViajesPage"     
@@ -119,7 +119,7 @@
 
     <MenuItem Text="Cerrar Sesión" Clicked="CerrarSesion_Clicked">
         <MenuItem.IconImageSource>
-            <FileImageSource File="cerrar_sesionn.jpg" />
+            <FileImageSource File="cerrar_sesionn.png"/>
         </MenuItem.IconImageSource>
     </MenuItem>
 
