@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AMBEApp.Pages.Viajes.ViajesPage"
+             xmlns:viewModels="clr-namespace:AMBEApp.ViewModels"
+             Title="ViajesPage">
+
+
+    <ContentPage.BindingContext>
+        <viewModels:ViajesViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Image
+                Source="ramgarlogo.jpg"
+                HeightRequest="85"
+                Aspect="AspectFit"
+                SemanticProperties.Description="LOGO DE RANGAR"
+                HorizontalOptions="End"
+                Margin="0,10,10,0"
+                Grid.Row="0" />
+
+
+
+            <StackLayout
+                Padding="30,0"
+                Spacing="25"
+                Orientation="Vertical"
+                Grid.Row="1">
+
+                <Frame BorderColor="Purple" CornerRadius="5" Padding="5" HasShadow="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Entry Placeholder="Buscar Viajes" HorizontalOptions="FillAndExpand" />
+
+                        <Image Grid.Column="1" Source="search_icon.jpg" WidthRequest="20" HeightRequest="20">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnSearchIconTapped" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+                </Frame>
+
+                <Frame BorderColor="Purple" CornerRadius="5" Padding="5" HasShadow="True">
+                    <ListView x:Name="ViajesListView" ItemsSource="{Binding Viajes}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                        <Label Text="{Binding Fecha}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding HoraInicio}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding HoraFinal}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding IdPersonaConductor}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding IdPersonaNinera}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding IdUnidad}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding IdInstituto}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                        <Button Text=""
+                                                ImageSource="edit_pencil.svg"
+                                                Clicked="OnEditarClicked"
+                                                BackgroundColor="White"
+                                                BorderColor="Purple"
+                                                BorderWidth="1"
+                                                TextColor="Green"
+                                                HeightRequest="40" />
+                                        <Button Text=""
+                                                ImageSource="trash.svg"
+                                                Clicked="OnEliminarClicked"
+                                                BackgroundColor="White"
+                                                BorderColor="Purple"
+                                                BorderWidth="1"
+                                                TextColor="Red"
+                                                HeightRequest="40"
+                                                Margin="5, 0, 0, 0" />
+
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+
+                <Button
+                x:Name="CrearNuevoRegistroBtn"
+                Text="Crear Nuevo Registro"
+                Clicked="OnCrearNuevoRegistroClicked"
+                BackgroundColor="Purple"
+                TextColor="White"
+                HorizontalOptions="Fill"
+                HeightRequest="40" />
+
+                <Button
+                    x:Name="GenerarPdfBtn"
+                    Text="Generar PDF" 
+                    Clicked="OnGenerarPdfClicked"
+                    BackgroundColor="Purple"
+                    TextColor="White"
+                    HorizontalOptions="Fill"
+                    HeightRequest="40" />
+
+                <Button
+                    x:Name="ImprimirBtn"
+                    Text="Imprimir" 
+                    Clicked="OnImprimirClicked"
+                    BackgroundColor="Purple"
+                    TextColor="White"
+                    HorizontalOptions="Fill"
+                    HeightRequest="40" />
+
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

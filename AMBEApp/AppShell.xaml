@@ -10,6 +10,9 @@
     xmlns:Grados ="clr-namespace:AMBEApp.Pages.Grados"
     xmlns:Incidentes ="clr-namespace:AMBEApp.Pages.Incidentes"
     xmlns:personas ="clr-namespace:AMBEApp.Pages.Personas"
+    xmlns:viajes ="clr-namespace:AMBEApp.Pages.Viajes"
+    xmlns:modelos ="clr-namespace:AMBEApp.Pages.Modelos"
+    xmlns:marcas ="clr-namespace:AMBEApp.Pages.Marcas"
     Shell.FlyoutBehavior="Flyout"
     Title="AMBEApp">
 
@@ -101,8 +104,7 @@
          />
 
        
-
-       <ShellContent
+     <ShellContent
      Icon="Resources/Images/iconos_grados.png"
      Title="Grados"        
      ContentTemplate="{DataTemplate Grados:GradosPage}"
@@ -116,6 +118,27 @@
      Route="IncidentesPage"
      
      />
+
+    <ShellContent
+          Icon="clipboard.svg"
+          Title="Viajes"        
+          ContentTemplate="{DataTemplate viajes:ViajesPage}"
+          Route="ViajesPage"     
+      />
+
+    <ShellContent
+       Icon="clipboard.svg"
+       Title="Marcas"        
+       ContentTemplate="{DataTemplate marcas:MarcasPage}"
+       Route="MarcasPage"     
+   />
+
+    <ShellContent
+    Icon="clipboard.svg"
+    Title="Modelos"        
+    ContentTemplate="{DataTemplate modelos:ModelosPage}"
+    Route="ModelosPage"     
+    />
 
     <MenuItem Text="Cerrar Sesión" Clicked="CerrarSesion_Clicked">
         <MenuItem.IconImageSource>
