@@ -1,5 +1,4 @@
-﻿
-using AMBEApp.Pages;
+﻿using AMBEApp.Pages;
 using AMBEApp.Services;
 using AMBEApp.ViewModels;
 using Auth0.OidcClient;
@@ -63,3 +62,4 @@ namespace AMBEApp
         }
     }
 }
+

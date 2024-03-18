@@ -128,6 +128,7 @@
 
     </ShellItem>         
 
+<<<<<<< HEAD
     <ShellItem Title="Mantenimiento"
           Icon="edit_pencil.svg "     >
         <ShellContent
@@ -137,6 +138,15 @@
         Route="PersonasPage" 
         IsVisible="{Binding Administrador}"    
         />
+=======
+    <ShellContent
+           Icon="Resources/Images/usuarios.jpg"
+          Title="Usuarios"        
+          ContentTemplate="{DataTemplate pages:UsuariosPage}"
+          Route="UsuariosPage"  
+         
+          />
+>>>>>>> 065ec0861013b1fa88b51bb1b886e871a49b8990
 
         <ShellContent
            Icon="clipboard.svg"
@@ -145,6 +155,7 @@
            Route="TipoViajesPage" 
            IsVisible="{Binding Administrador}" 
        />
+<<<<<<< HEAD
         
         <ShellContent
           Icon="clipboard.svg"
@@ -194,6 +205,15 @@
          />
     </ShellItem>
 
+=======
+
+    <ShellContent
+          Icon="Resources/Images/tipo_viajes.png"
+          Title="Tipos de Viaje"        
+          ContentTemplate="{DataTemplate tipoViaje:TipoViajesPage}"
+          Route="TipoViajesPage"     
+      />
+>>>>>>> 065ec0861013b1fa88b51bb1b886e871a49b8990
 
     <ShellContent
          Icon="stand_by.svg"
@@ -205,7 +225,7 @@
     
     <MenuItem Text="Cerrar Sesión" Clicked="CerrarSesion_Clicked">
         <MenuItem.IconImageSource>
-            <FileImageSource File="cerrar_sesionn.jpg" />
+            <FileImageSource File="cerrar_sesionn.png"/>
         </MenuItem.IconImageSource>
     </MenuItem>
 
