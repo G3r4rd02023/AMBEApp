@@ -27,6 +27,8 @@ namespace AMBEApp
             viewModel.EsAdminInstituto = await servicioUsuario.VerificarRol(2);
             viewModel.EsCliente = await servicioUsuario.VerificarRol(3);
             viewModel.EsEmpleado = await servicioUsuario.VerificarRol(4) || await servicioUsuario.VerificarRol(5);
+            viewModel.Administrador = viewModel.EsAdminInstituto || viewModel.EsAdmin;
+            viewModel.Usuario = viewModel.Administrador || viewModel.EsCliente;
         }
 
         private async void CerrarSesion_Clicked(object sender, EventArgs e)

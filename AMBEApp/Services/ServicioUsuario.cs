@@ -162,7 +162,7 @@ namespace AMBEApp.Services
             try
             {
                 var usuarios = await ObtenerLista();
-                var usuarioEncontrado = usuarios.FirstOrDefault(r => r.NombreUsuario == UsuarioAutenticado);
+                var usuarioEncontrado = usuarios.FirstOrDefault(r => r.Usuario == UsuarioAutenticado);
 
                 if (usuarioEncontrado != null && usuarioEncontrado.IdRol == idRol)
                 {
