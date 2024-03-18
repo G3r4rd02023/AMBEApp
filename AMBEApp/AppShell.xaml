@@ -13,6 +13,10 @@
     xmlns:viajes ="clr-namespace:AMBEApp.Pages.Viajes"
     xmlns:modelos ="clr-namespace:AMBEApp.Pages.Modelos"
     xmlns:marcas ="clr-namespace:AMBEApp.Pages.Marcas"
+    xmlns:secciones ="clr-namespace:AMBEApp.Pages.Secciones"
+    xmlns:unidades ="clr-namespace:AMBEApp.Pages.Unidades"
+    xmlns:rutas ="clr-namespace:AMBEApp.Pages.Rutas"
+    xmlns:parentescos ="clr-namespace:AMBEApp.Pages.Parentescos"
     Shell.FlyoutBehavior="Flyout"
     Title="AMBEApp">
 
@@ -27,21 +31,54 @@
         Route="HomePage"       
         />
 
-    <ShellContent
-         Icon="time.svg"
-         Title="Objetos"        
-         ContentTemplate="{DataTemplate pages:ObjetosPage}"
-         Route="ObjetosPage"  
-         IsVisible="{Binding EsAdminInstituto}"
+    <ShellItem Title="Administración"
+          Icon="add_solid.svg">
+        
+        <ShellContent
+          Icon="time.svg"
+          Title="Objetos"        
+          ContentTemplate="{DataTemplate pages:ObjetosPage}"
+          Route="ObjetosPage"  
+          IsVisible="{Binding Administrador}"
+        />
+
+        <ShellContent
+          Icon="home.svg"
+          Title="Institutos"        
+          ContentTemplate="{DataTemplate pages:InstitutosPage}"
+          Route="InstitutosPage" 
+          IsVisible="{Binding EsAdmin}"
+          
          />
 
-    <ShellContent
-         Icon="home.svg"
-         Title="Institutos"        
-         ContentTemplate="{DataTemplate pages:InstitutosPage}"
-         Route="InstitutosPage" 
-         IsVisible="{Binding EsAdmin}"
+        <ShellContent
+          Icon="clipboard.svg"
+          Title="Bitacora"        
+          ContentTemplate="{DataTemplate pages:BitacoraPage}"
+          Route="BitacoraPage"
+          IsVisible="{Binding Administrador}"
          />
+    </ShellItem>
+
+    <ShellItem Title="Seguridad"
+          Icon="stand_by.svg"     >
+        <ShellContent
+          Icon="clipboard.svg"
+          Title="Roles"        
+          ContentTemplate="{DataTemplate pages:RolesPage}"
+          Route="RolesPage"  
+          IsVisible="{Binding Administrador}"
+          />
+
+        <ShellContent
+           Icon="clipboard.svg"
+           Title="Usuarios"        
+           ContentTemplate="{DataTemplate pages:UsuariosPage}"
+           Route="UsuariosPage"
+           IsVisible="{Binding Administrador}" 
+          />
+    </ShellItem>
+
 
     <ShellContent Route="RegistroPage" Title="Registro" ContentTemplate="{DataTemplate pages:RegistroPage}" IsVisible="{Binding EsAdmin}"/>
 
@@ -50,51 +87,114 @@
          Icon="Resources/Images/perfil_usuario.png"
          Title="Perfil"        
          ContentTemplate="{DataTemplate pages:PerfilPage}"
-         Route="PerfilPage"         
+         Route="PerfilPage" 
+         
          />
 
-    <ShellContent
-          Icon="clipboard.svg"
-          Title="Bitacora"        
-          ContentTemplate="{DataTemplate pages:BitacoraPage}"
-          Route="BitacoraPage"
-          IsVisible="{Binding EsAdminInstituto}"
+
+    <ShellItem Title="Reportes"
+           Icon="clipboard.svg"    >
+        <ShellContent
+           Icon="clipboard.svg"
+           Title="Secciones"        
+           ContentTemplate="{DataTemplate secciones:SeccionesPage}"
+           Route="SeccionesPage"
+           IsVisible="{Binding Administrador}" 
+           />
+
+        <ShellContent
+             Icon="Resources/Images/iconos_grados.png"
+             Title="Grados"        
+             ContentTemplate="{DataTemplate Grados:GradosPage}"
+             Route="GradosPage"
+             IsVisible="{Binding Administrador}"  
+            />
+
+        <ShellContent
+            Icon="clipboard.svg"
+            Title="Marcas"        
+            ContentTemplate="{DataTemplate marcas:MarcasPage}"
+            Route="MarcasPage"
+            IsVisible="{Binding Administrador}" 
           />
 
-    <ShellContent
-          Icon="clipboard.svg"
-          Title="Roles"        
-          ContentTemplate="{DataTemplate pages:RolesPage}"
-          Route="RolesPage"  
-          IsVisible="{Binding EsAdminInstituto}"
+        <ShellContent
+              Icon="clipboard.svg"
+              Title="Modelos"        
+              ContentTemplate="{DataTemplate modelos:ModelosPage}"
+              Route="ModelosPage"
+              IsVisible="{Binding Administrador}"   
           />
 
+    </ShellItem>         
 
-    <ShellContent
-          Icon="clipboard.svg"
-          Title="Usuarios"        
-          ContentTemplate="{DataTemplate pages:UsuariosPage}"
-          Route="UsuariosPage"  
-         
-          />
+    <ShellItem Title="Mantenimiento"
+          Icon="edit_pencil.svg "     >
+        <ShellContent
+         Icon="Resources/Images/personas.png"
+        Title="Personas"        
+        ContentTemplate="{DataTemplate personas:PersonasPage}"
+        Route="PersonasPage" 
+        IsVisible="{Binding Administrador}"    
+        />
 
-    <ShellContent
-        Icon="Resources/Images/personas.png"
-       Title="Personas"        
-       ContentTemplate="{DataTemplate personas:PersonasPage}"
-       Route="PersonasPage"  
-      
+        <ShellContent
+           Icon="clipboard.svg"
+           Title="Tipos de Viaje"        
+           ContentTemplate="{DataTemplate tipoViaje:TipoViajesPage}"
+           Route="TipoViajesPage" 
+           IsVisible="{Binding Administrador}" 
        />
-
-    <ShellContent
+        
+        <ShellContent
           Icon="clipboard.svg"
-          Title="Tipos de Viaje"        
-          ContentTemplate="{DataTemplate tipoViaje:TipoViajesPage}"
-          Route="TipoViajesPage"     
-      />
+          Title="Parentescos"        
+          ContentTemplate="{DataTemplate parentescos:ParentescosPage}"
+          Route="ParentescosPage"
+          IsVisible="{Binding Administrador}"
+          />
 
-          
-    
+       
+    </ShellItem>
+
+
+    <ShellItem Title="Operaciones"
+           Icon="ticket.svg">
+        <ShellContent
+             Icon="stand_by.svg"
+             Title="Incidentes"        
+             ContentTemplate="{DataTemplate Incidentes:IncidentesPage}"
+             Route="IncidentesPage"
+             IsVisible="{Binding Usuario}"
+         />
+
+        <ShellContent
+          Icon="clipboard.svg"
+          Title="Viajes"        
+          ContentTemplate="{DataTemplate viajes:ViajesPage}"
+          Route="ViajesPage"  
+          IsVisible="{Binding Administrador}"  
+        />
+
+        <ShellContent
+         Icon="clipboard.svg"
+         Title="Unidades"        
+         ContentTemplate="{DataTemplate unidades:UnidadesPage}"
+         Route="UnidadesPage"
+         IsVisible="{Binding Administrador}"   
+         />
+
+
+        <ShellContent
+           Icon="clipboard.svg"
+           Title="Rutas"        
+           ContentTemplate="{DataTemplate rutas:RutasPage}"
+           Route="RutasPage" 
+           IsVisible="{Binding Usuario}" 
+         />
+    </ShellItem>
+
+
     <ShellContent
          Icon="stand_by.svg"
          Title="Login"        
@@ -102,44 +202,7 @@
          Route="LoginPage"
          IsVisible="False"
          />
-
-       
-     <ShellContent
-     Icon="Resources/Images/iconos_grados.png"
-     Title="Grados"        
-     ContentTemplate="{DataTemplate Grados:GradosPage}"
-      Route="GradosPage"
-        />
-
-    <ShellContent
-     Icon="stand_by.svg"
-     Title="Incidentes"        
-     ContentTemplate="{DataTemplate Incidentes:IncidentesPage}"
-     Route="IncidentesPage"
-     
-     />
-
-    <ShellContent
-          Icon="clipboard.svg"
-          Title="Viajes"        
-          ContentTemplate="{DataTemplate viajes:ViajesPage}"
-          Route="ViajesPage"     
-      />
-
-    <ShellContent
-       Icon="clipboard.svg"
-       Title="Marcas"        
-       ContentTemplate="{DataTemplate marcas:MarcasPage}"
-       Route="MarcasPage"     
-   />
-
-    <ShellContent
-    Icon="clipboard.svg"
-    Title="Modelos"        
-    ContentTemplate="{DataTemplate modelos:ModelosPage}"
-    Route="ModelosPage"     
-    />
-
+    
     <MenuItem Text="Cerrar Sesión" Clicked="CerrarSesion_Clicked">
         <MenuItem.IconImageSource>
             <FileImageSource File="cerrar_sesionn.jpg" />

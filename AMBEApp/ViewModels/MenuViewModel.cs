@@ -10,6 +10,8 @@ namespace AMBEApp.ViewModels
         private bool _esAdminInstituto;
         private bool _esEmpleado;
         private bool _esCliente;
+        private bool _Administrador;
+        private bool _Usuario;
         public bool EsAdmin
         {
             get => _esAdmin;
@@ -61,6 +63,35 @@ namespace AMBEApp.ViewModels
                 }
             }
         }
+
+        public bool Administrador
+        {
+            get => _Usuario;
+            set
+            {
+                if (_Usuario != value)
+                {
+                    _Usuario = value;
+                    OnPropertyChanged(nameof(Administrador));
+                    
+                }
+            }
+        }
+
+        public bool Usuario
+        {
+            get => _Usuario;
+            set
+            {
+                if (_Usuario != value)
+                {
+                    _Usuario = value;
+                    OnPropertyChanged(nameof(Usuario));
+
+                }
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -74,6 +105,10 @@ namespace AMBEApp.ViewModels
             EsAdminInstituto = await servicioUsuario.VerificarRol(2);
             EsCliente = await servicioUsuario.VerificarRol(3);
             EsEmpleado = await servicioUsuario.VerificarRol(4) || await servicioUsuario.VerificarRol(5);
+            Administrador = EsAdminInstituto || EsAdmin;
+            Usuario = Administrador || EsCliente; 
         }
+
+       
     }
 }
