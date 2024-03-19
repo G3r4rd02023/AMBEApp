@@ -39,9 +39,13 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+    <MauiIcon Include="Resources\AppIcon\icono.png" color="White" ForegroundScale="0.65" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -64,6 +68,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+    <None Remove="Resources\AppIcon\icono.png" />
 	  <None Remove="Resources\Images\cerrar_sesion.png" />
 	  <None Remove="Resources\Images\cerrar_sesionn.jpg" />
 	  <None Remove="Resources\Images\cerrar_sesion_usuario.png" />
