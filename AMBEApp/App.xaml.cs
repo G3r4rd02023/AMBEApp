@@ -11,7 +11,12 @@ namespace AMBEApp
         {
             InitializeComponent();
             auth0Client = client;
-            MainPage = new LoginPage(auth0Client);
+            var navPage = new NavigationPage(new LoginPage(auth0Client))
+            {
+                BarBackgroundColor = Colors.Purple,
+                BarTextColor = Colors.White
+            };
+            MainPage = navPage;
 
         }
 

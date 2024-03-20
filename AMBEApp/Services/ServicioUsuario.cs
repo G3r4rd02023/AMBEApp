@@ -9,9 +9,15 @@ namespace AMBEApp.Services
         private readonly string urlApi = "https://ambetest.somee.com/api/Usuarios";
         public static string UsuarioAutenticado { get; private set; }
 
+        public static ImageSource ImagenUsuario { get; private set; }
         public static void SetUsuarioAutenticado(string username)
         {
             UsuarioAutenticado = username;
+        }
+      
+        public static void SetImagenUsuario(ImageSource imagenUsuario)
+        {
+            ImagenUsuario = imagenUsuario;
         }
 
         public async Task<List<Usuarios>> ObtenerLista()

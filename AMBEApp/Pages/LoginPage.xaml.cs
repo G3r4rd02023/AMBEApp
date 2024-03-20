@@ -22,18 +22,19 @@ public partial class LoginPage : ContentPage
         {
             string nombreUsuario = loginResult.User.Identity.Name;
             UsuarioAutenticado = nombreUsuario;
-            ServicioUsuario.SetUsuarioAutenticado(nombreUsuario);
+            ServicioUsuario.SetUsuarioAutenticado(nombreUsuario);          
             ImageSource imagenUsuario = ImageSource.FromUri(new Uri(loginResult.User.Claims
             .FirstOrDefault(c => c.Type == "picture")?.Value));
+            ServicioUsuario.SetImagenUsuario(imagenUsuario);
             //await Navigation.PushAsync(new PerfilPage(nombreUsuario, imagenUsuario));                                
             ServicioUsuario servicioUsuario = new();
             bool isFirstLogin = await servicioUsuario.ValidarPrimerLogin(nombreUsuario);
 
             if (isFirstLogin)
             {
-                App.Current.MainPage = new AppShell(auth0Client);
-                AppShell.Current.FlyoutIsPresented = true;                
-                var registroPage = new RegistroPage(nombreUsuario, auth0Client);
+                App.Current.MainPage = new AppShell(auth0Client);               
+                AppShell.Current.FlyoutIsPresented = true;
+                var registroPage = new RegistroPage(nombreUsuario, auth0Client);                
                 await Shell.Current.Navigation.PushAsync(registroPage);
                 //await Shell.Current.GoToAsync("//RegistroPage");
                 //await Navigation.PushAsync(new RegistroPage(nombreUsuario, auth0Client));                                      
@@ -61,5 +62,7 @@ public partial class LoginPage : ContentPage
         {
             await DisplayAlert("Error", loginResult.ErrorDescription, "OK");
         }
-    }  
+    }
+
+   
 }

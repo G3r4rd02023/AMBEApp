@@ -17,8 +17,9 @@ namespace AMBEApp
             ViewModel = new MenuViewModel(); // Instancia de tu ViewModel
             BindingContext = ViewModel;
             ConfirmarRol();
+            
         }
-
+       
         private async void ConfirmarRol()
         {
             var viewModel = (MenuViewModel)BindingContext;
