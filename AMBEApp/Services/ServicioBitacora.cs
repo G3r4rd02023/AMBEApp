@@ -6,7 +6,6 @@ namespace AMBEApp.Services
 {
     public class ServicioBitacora
     {
-       
         public static async Task<bool> AgregarRegistro(int idUsuario, int idInstituto, string tipoAccion, string tabla)
         {
 
@@ -41,6 +40,5 @@ namespace AMBEApp.Services
                 return false;
             }
         }
-
     }
 }

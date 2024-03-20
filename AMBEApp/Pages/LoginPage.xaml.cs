@@ -1,3 +1,4 @@
+using AMBEApp.Models;
 using AMBEApp.Services;
 using Auth0.OidcClient;
 
@@ -39,21 +40,26 @@ public partial class LoginPage : ContentPage
             }
             else
             {
-                App.Current.MainPage = new AppShell(auth0Client);
-                await Shell.Current.GoToAsync("//HomePage");
-                //await Navigation.PushAsync(new HomePage());                
+                bool usuarioActivo = await servicioUsuario.ValidarUsuarioActivo(nombreUsuario);
+                if(usuarioActivo)
+                {
+                    App.Current.MainPage = new AppShell(auth0Client);
+                    await Shell.Current.GoToAsync("//HomePage");
+                    //await Navigation.PushAsync(new HomePage());    
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Tu solicitud aun no ha sido aprobada por el administrador, por favor intenta mas tarde", "Ok");
+                }
             }
             ServicioInstituto servicioInstituto = new();
             int idUsuario = await servicioUsuario.ObtenerIdUsuario(nombreUsuario);
             int idInstituto = await servicioInstituto.ObtenerIdInstituto(nombreUsuario);
-            // await ServicioBitacora.AgregarRegistro(idUsuario, idInstituto, "Inicio Sesión", "Sistema");
+            await ServicioBitacora.AgregarRegistro(idUsuario, idInstituto, "Inicio Sesión", "Sistema");
         }
         else
         {
             await DisplayAlert("Error", loginResult.ErrorDescription, "OK");
         }
-
-    }
-
-   
+    }  
 }

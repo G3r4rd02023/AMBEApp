@@ -37,16 +37,15 @@ namespace AMBEApp.Services
             var listaUsuarios = await ObtenerLista();
 
             var usuarioEncontrado = listaUsuarios.FirstOrDefault(u => u.NombreUsuario == usuario || u.Usuario == usuario);
-
-            if (usuarioEncontrado != null && usuarioEncontrado.Estado == "Nuevo")
+          
+            if (usuarioEncontrado == null)
             {
-                //accede directamente a menu
-                return false;
-            }
-            else
-            {
-                //envia a registro
                 return true;
+            }          
+            else
+            {                
+                //acceso directo
+                return false;
             }
         }
 
@@ -177,5 +176,32 @@ namespace AMBEApp.Services
             }
         }
 
+        public async Task<bool> ValidarUsuarioActivo(string nombreUsuario)
+        {
+            try
+            {
+                var usuarios = await ObtenerLista();
+                var user = usuarios.FirstOrDefault(u => u.Usuario == nombreUsuario);
+
+                if (user == null)
+                {
+                    return false;
+                }
+
+                if (user.Estado == "Activo")
+                {
+                    return true;
+                }
+                else
+                {                    
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {                
+                Console.WriteLine($"Error al validar el usuario activo: {ex.Message}");
+                return false;
+            }
+        }
     }
 }

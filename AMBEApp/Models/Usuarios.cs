@@ -44,14 +44,6 @@ namespace AMBEApp.Models
 
         [JsonPropertyName("fechaModificacion")]
         public DateTime FechaModificacion { get; set; }
-
-        public Task<string> NombreRol
-        {
-            get
-            {
-                ServicioRoles servicioRoles = new();
-                return servicioRoles.ObtenerNombreRol(IdRol); 
-            }
-        }
+       
     }
 }
