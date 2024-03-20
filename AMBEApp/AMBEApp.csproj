@@ -125,6 +125,9 @@
 	  <MauiXaml Update="Pages\Secciones\SeccionesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\TipoViajes\CrearTipoViajePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\TipoViajes\TipoViajesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
