@@ -89,14 +89,7 @@
                     HorizontalOptions="Fill"
                     HeightRequest="40" />
 
-                <Button
-                     x:Name="FiltrarPersonasBtn"
-                     Text="Filtrar" 
-                     Clicked="FiltrarPersonas"
-                     BackgroundColor="Purple"
-                     TextColor="White"
-                     HorizontalOptions="Fill"
-                     HeightRequest="40" />
+                
 
 
             </StackLayout>
