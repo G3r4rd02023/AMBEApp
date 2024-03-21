@@ -1,3 +1,4 @@
+using AMBEApp.Models;
 using AMBEApp.Services;
 using AMBEApp.ViewModels;
 
@@ -12,6 +13,7 @@ public partial class ObjetosPage : ContentPage
         _viewModel = new ObjetosViewModel();
         BindingContext = _viewModel;
         CargarObjetos();
+        txtFiltro.TextChanged += (sender, e) => FiltrarObjetos();
     }
 
     private async void CargarObjetos()
@@ -35,6 +37,15 @@ public partial class ObjetosPage : ContentPage
         }
     }
 
+    private async void FiltrarObjetos()
+    {
+        ServicioObjeto servicioObjeto = new();
+        var objetos = await servicioObjeto.ObtenerLista();
+        var objetosFiltrado = objetos.Where(o =>
+        o.Objeto.Contains(txtFiltro.Text, StringComparison.OrdinalIgnoreCase));
+        _viewModel.Objetos = new List<Objetos>(objetosFiltrado);
+    }
+
     private void OnGenerarPdfClicked(object sender, EventArgs e)
     {
     }
@@ -50,7 +61,7 @@ public partial class ObjetosPage : ContentPage
 
     private void OnSearchIconTapped(object sender, EventArgs e)
     {
-        DisplayAlert("Búsqueda", "Realizar búsqueda...", "Aceptar");
+          
     }
    
     private void OnEditarClicked(object sender, EventArgs e)
