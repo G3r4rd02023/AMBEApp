@@ -55,23 +55,48 @@ public partial class ObjetosPage : ContentPage
     //{
     //}
 
-    private void OnEliminarClicked(object sender, EventArgs e)
+    private async void OnEliminarClicked(object sender, EventArgs e)
     {
+        var boton = (Button)sender;
+        if (boton.BindingContext is Objeto objeto)
+        {
+            bool confirmacion = await DisplayAlert("Confirmar Eliminación", "¿Estás seguro de que deseas eliminar este objeto?", "Sí", "No");
+            if (confirmacion)
+            {
+                ServicioObjeto servicioObjeto = new();
+                bool registroEliminado = await servicioObjeto.EliminarObjeto(objeto.IdObjeto);
+                if (registroEliminado)
+                {
+                    await DisplayAlert("Éxito", "objeto eliminado correctamente", "OK");
+                    ServicioUsuario servicioUsuario = new();
+                    var usuario = ServicioUsuario.UsuarioAutenticado;
+                    int userId = await servicioUsuario.ObtenerIdUsuario(usuario);
 
+                    await ServicioBitacora.AgregarRegistro(userId, objeto.IdInstituto, "Eliminó", "Objetos");
+                    await Navigation.PopAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Ocurrio un problema al eliminar el objeto. Por favor, intenta nuevamente.", "OK");
+                }
+            }
+        }
+        else
+        {
+            await DisplayAlert("Error", "No se pudo obtener el objeto para eliminar", "OK");
+        }
     }
 
     private void OnSearchIconTapped(object sender, EventArgs e)
     {
-          
+        
     }
    
     private async void OnEditarClicked(object sender, EventArgs e)
     {
         var boton = (Button)sender;
-        var objeto = boton.BindingContext as Objeto;
-        if (objeto != null)
-        {
-            // Navegar a la página de edición de usuario y pasar el usuario como parámetro
+        if (boton.BindingContext is Objeto objeto)
+        {           
             await Navigation.PushAsync(new EditarObjetoPage(objeto));
         }
         else

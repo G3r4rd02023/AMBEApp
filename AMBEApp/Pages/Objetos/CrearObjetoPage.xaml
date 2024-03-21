@@ -8,7 +8,7 @@
             <Image Source="ramgarlogo.jpg" HeightRequest="79" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" />
 
             <StackLayout Spacing="10" BackgroundColor="White" WidthRequest="330">
-                <Picker x:Name="pickerInstituto" Title="Seleccionar Instituto" TextColor="Black" />
+                
                 <Entry x:Name="TxtObjeto" Placeholder="Nombre Objeto" />
                 <Entry x:Name="TxtDescripcion" Placeholder="Descripcion" />
                 <Entry x:Name="TxtTipoObjeto" Placeholder="Tipo Objeto" />

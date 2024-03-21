@@ -81,5 +81,35 @@ namespace AMBEApp.Services
                 return false;
             }
         }
+
+        public async Task<bool> EliminarObjeto(int idObjeto)
+        {
+            try
+            {
+                using var httpClient = new HttpClient();
+                HttpResponseMessage response = await httpClient.DeleteAsync($"{urlApi}/{idObjeto}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {                   
+                    string errorMessage = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Error al eliminar el objeto: {errorMessage}");
+                    return false;
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Error en la solicitud HTTP: {ex.Message}");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error inesperado: {ex.Message}");
+                return false;
+            }
+        }
     }
 }
