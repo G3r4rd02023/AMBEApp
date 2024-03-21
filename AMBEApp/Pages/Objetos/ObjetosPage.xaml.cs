@@ -22,7 +22,7 @@ public partial class ObjetosPage : ContentPage
     }
 
 
-    private async void CrearObjeto_Clicked(object sender, EventArgs e)
+    private async void OnCrearNuevoRegistroClicked(object sender, EventArgs e)
     {
         try
         {
@@ -33,5 +33,28 @@ public partial class ObjetosPage : ContentPage
             await DisplayAlert("Error", $"Error : {ex.Message}", "OK");
             return;
         }
+    }
+
+    private void OnGenerarPdfClicked(object sender, EventArgs e)
+    {
+    }
+
+    //private void OnImprimirClicked(object sender, EventArgs e)
+    //{
+    //}
+
+    private void OnEliminarClicked(object sender, EventArgs e)
+    {
+
+    }
+
+    private void OnSearchIconTapped(object sender, EventArgs e)
+    {
+        DisplayAlert("Búsqueda", "Realizar búsqueda...", "Aceptar");
+    }
+   
+    private void OnEditarClicked(object sender, EventArgs e)
+    {
+
     }
 }

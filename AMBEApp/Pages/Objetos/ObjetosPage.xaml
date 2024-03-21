@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
               xmlns:viewModels="clr-namespace:AMBEApp.ViewModels"
              x:Class="AMBEApp.Pages.ObjetosPage"
-             Title="ObjetosPage">
+             Title="Objetos">
 
     <ContentPage.BindingContext>
         <viewModels:ObjetosViewModel />
@@ -12,24 +12,129 @@
    
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
-                <CollectionView ItemsSource="{Binding Objetos}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout Padding="10" Orientation="Horizontal" BackgroundColor="LightGray" Margin="5">
-                                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                    <Label Text="{Binding IdInstituto}" FontAttributes="Bold" HorizontalOptions="Center" />
-                                    <Label Text="{Binding Objeto}" HorizontalOptions="Center" />
-                                    <Label Text="{Binding Descripcion}" HorizontalOptions="Center" />
-                                    <Label Text="{Binding TipoObjeto}" HorizontalOptions="Center" />
-                                </StackLayout>
-                            </StackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-                <Button Text="Crear Nuevo Objeto" Clicked="CrearObjeto_Clicked" BackgroundColor="MediumPurple" HorizontalOptions="CenterAndExpand" />
-            </StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Image
+                Source="ramgarlogo.jpg"
+                HeightRequest="85"
+                Aspect="AspectFit"
+                SemanticProperties.Description="LOGO DE RANGAR"
+                HorizontalOptions="End"
+                Margin="0,10,10,0"
+                Grid.Row="0" />
+
+                <Button
+                x:Name="CrearNuevoRegistroBtn"
+                Text="Nuevo"
+                Clicked="OnCrearNuevoRegistroClicked"
+                BackgroundColor="White"
+                HorizontalOptions="Start"    
+                TextColor="Purple"                
+                HeightRequest="40"
+                BorderWidth="1" 
+                BorderColor="Purple"    
+                ImageSource="add_solid.svg"/>
+
+                <Button
+                 x:Name="GenerarPdfBtn"
+                 Text="PDF" 
+                 Clicked="OnGenerarPdfClicked"
+                 BackgroundColor="White"
+                 TextColor="Purple"
+                 HorizontalOptions="Center"
+                 BorderColor="Purple"
+                 BorderWidth="1"
+                 HeightRequest="40" />
+
+                <!--<Button
+                  x:Name="ImprimirBtn"
+                  Text="Imp" 
+                  Clicked="OnImprimirClicked"
+                  BackgroundColor="White"
+                  TextColor="Purple"
+                  HorizontalOptions="End"
+                  BorderColor="Purple"
+                  BorderWidth="1"
+                  HeightRequest="40" />-->
+
+                <StackLayout
+                Padding="30,0"
+                Spacing="25"
+                Orientation="Vertical"
+                Grid.Row="1">
+
+                    <Frame BorderColor="Purple" CornerRadius="5" Padding="5" HasShadow="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Entry Placeholder="Buscar Objeto" HorizontalOptions="FillAndExpand" />
+
+                            <Image Grid.Column="1" Source="search_icon.jpg" WidthRequest="20" HeightRequest="20">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnSearchIconTapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+                    </Frame>
+
+                    <Frame BorderColor="Purple" CornerRadius="5" Padding="5" HasShadow="True">
+                        <ListView x:Name="GradosListView" ItemsSource="{Binding Objetos}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                                                <Label Text="{Binding Objeto}" FontAttributes="Bold" HorizontalOptions="Start" />
+                                                <Label Text="{Binding Descripcion}" HorizontalOptions="Start" />
+                                            </StackLayout>
+                                                                                                                                  
+
+                                            <Button Text=""
+                                                ImageSource="edit_pencil.svg"
+                                                Clicked="OnEditarClicked"
+                                                BackgroundColor="White"
+                                                BorderColor="Purple"
+                                                BorderWidth="1"
+                                                TextColor="Green"
+                                                HeightRequest="40"
+                                                HorizontalOptions="End"/>
+                                            <Button Text=""
+                                                ImageSource="trash.svg"
+                                                Clicked="OnEliminarClicked"
+                                                BackgroundColor="White"
+                                                BorderColor="Purple"
+                                                BorderWidth="1"
+                                                TextColor="Red"
+                                                HeightRequest="40"
+                                                Margin="5, 0, 0, 0" 
+                                                HorizontalOptions="End"/>
+
+                                        </StackLayout>
+                                       
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Frame>
+
+                    
+
+                   
+
+                  
+
+                </StackLayout>
+            </Grid>
         </ScrollView>
+
     </ContentPage.Content>
 
 </ContentPage>
