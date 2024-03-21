@@ -12,7 +12,7 @@ namespace AMBEApp.Services
     {
         private readonly string urlApi = "https://ambetest.somee.com/api/Objetos";
 
-        public async Task<List<Objetos>> ObtenerLista()
+        public async Task<List<Objeto>> ObtenerLista()
         {
             var client = new HttpClient();
             var response = await client.GetAsync(urlApi);
@@ -20,7 +20,7 @@ namespace AMBEApp.Services
             {
                 var responseBody = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(responseBody);
-                var objetoData = JsonSerializer.Deserialize<List<Objetos>>(responseBody);
+                var objetoData = JsonSerializer.Deserialize<List<Objeto>>(responseBody);
                 return objetoData;
             }
             else
@@ -35,7 +35,7 @@ namespace AMBEApp.Services
             try
             {
                 var objetos = await ObtenerLista();
-                var objetoEncontrado = objetos.FirstOrDefault(u => u.Objeto == nombreObjeto);
+                var objetoEncontrado = objetos.FirstOrDefault(u => u.NombreObjeto == nombreObjeto);
 
                 if (objetoEncontrado != null)
                 {
@@ -49,6 +49,35 @@ namespace AMBEApp.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error al obtener los objetos: {ex.Message}");
+                return false;
+            }
+        }
+
+        public async Task<bool> ActualizarObjeto(string objetoJson, Objeto objetoEditado)
+        {
+            try
+            {
+                using var httpClient = new HttpClient();
+                var content = new StringContent(objetoJson, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await httpClient.PutAsync($"{urlApi}/{objetoEditado.IdObjeto}", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Error en la solicitud HTTP: {ex.Message}");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error inesperado: {ex.Message}");
                 return false;
             }
         }

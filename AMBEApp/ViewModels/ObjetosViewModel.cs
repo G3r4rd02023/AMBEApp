@@ -11,9 +11,9 @@ namespace AMBEApp.ViewModels
 {
     public class ObjetosViewModel : INotifyPropertyChanged
     {
-        private List<Objetos> _objetos;
+        private List<Objeto> _objetos;
 
-        public List<Objetos> Objetos
+        public List<Objeto> Objetos
         {
             get => _objetos;
             set

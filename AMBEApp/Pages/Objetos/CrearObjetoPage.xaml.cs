@@ -51,10 +51,10 @@ public partial class CrearObjetoPage : ContentPage
                 return;
             }
 
-            var nuevoObjeto = new Objetos()
+            var nuevoObjeto = new Objeto()
             {
                 IdInstituto = idInstituto,
-                Objeto = objeto,
+                NombreObjeto = objeto,
                 Descripcion = descripcion,
                 TipoObjeto = tipoObjeto,
                 CreadoPor = username,

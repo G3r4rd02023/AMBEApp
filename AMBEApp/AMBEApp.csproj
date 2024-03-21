@@ -110,6 +110,9 @@
 	  <MauiXaml Update="Pages\Objetos\CrearObjetoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\Objetos\EditarObjetoPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Parentescos\ParentescosPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -2,7 +2,7 @@
 
 namespace AMBEApp.Models
 {
-    public class Objetos
+    public class Objeto
     {
         [JsonPropertyName("idObjeto")]
         public int IdObjeto { get; set; }
@@ -11,7 +11,7 @@ namespace AMBEApp.Models
         public int IdInstituto { get; set; }
 
         [JsonPropertyName("objeto")]
-        public string Objeto { get; set; }
+        public string NombreObjeto { get; set; }
 
         [JsonPropertyName("descripcion")]
         public string Descripcion { get; set; }
