@@ -1,12 +1,25 @@
+using AMBEApp.Services;
+using AMBEApp.ViewModels;
+
 namespace AMBEApp.Pages.Modelos;
 
 public partial class ModelosPage : ContentPage
 {
-	public ModelosPage()
+    private readonly ModelosViewModel _viewModel;
+    public ModelosPage()
 	{
 		InitializeComponent();
-	}
+        _viewModel = new ModelosViewModel();
+        BindingContext = _viewModel;
+        CargarModelos();
+    }
 
+    private async void CargarModelos()
+    {
+        ServicioModelo servicioModelos = new();
+        var registros = await servicioModelos.ObtenerLista();
+        _viewModel.Modelos = registros;
+    }
     private void OnGenerarPdfClicked(object sender, EventArgs e)
     {
     }
@@ -25,9 +38,17 @@ public partial class ModelosPage : ContentPage
         DisplayAlert("Búsqueda", "Realizar búsqueda...", "Aceptar");
     }
 
-    private void OnCrearNuevoRegistroClicked(object sender, EventArgs e)
+    private async void OnCrearNuevoRegistroClicked(object sender, EventArgs e)
     {
-        DisplayAlert("Nuevo Registro", "Implementa la lógica para crear un nuevo registro.", "Aceptar");
+        try
+        {
+            await Navigation.PushAsync(new CrearModeloPage());
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"Error : {ex.Message}", "OK");
+            return;
+        }
     }
 
     private void OnEditarClicked(object sender, EventArgs e)

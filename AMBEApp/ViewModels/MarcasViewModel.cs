@@ -7,9 +7,9 @@ namespace AMBEApp.ViewModels
     public class MarcasViewModel : INotifyPropertyChanged
     {
 
-        private List<Marcas> _marcas;
+        private List<Marca> _marcas;
 
-        public List<Marcas> Marcas
+        public List<Marca> Marcas
         {
             get => _marcas;
             set

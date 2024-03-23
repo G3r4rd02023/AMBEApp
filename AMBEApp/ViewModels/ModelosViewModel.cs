@@ -7,9 +7,9 @@ namespace AMBEApp.ViewModels
     public class ModelosViewModel : INotifyPropertyChanged
     {
 
-        private List<Modelos> _modelos;
+        private List<Modelo> _modelos;
 
-        public List<Modelos> Modelos
+        public List<Modelo> Modelos
         {
             get => _modelos;
             set

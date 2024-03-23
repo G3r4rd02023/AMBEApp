@@ -1,11 +1,25 @@
+using AMBEApp.Services;
+using AMBEApp.ViewModels;
+
 namespace AMBEApp.Pages.Marcas;
 
 public partial class MarcasPage : ContentPage
 {
-	public MarcasPage()
+    private readonly MarcasViewModel _viewModel;
+    public MarcasPage()
 	{
 		InitializeComponent();
-	}
+        _viewModel = new MarcasViewModel();
+        BindingContext = _viewModel;
+        CargarMarcas();
+    }
+
+    private async void CargarMarcas()
+    {
+        ServicioMarcas servicioMarcas = new();
+        var registros = await servicioMarcas.ObtenerLista();
+        _viewModel.Marcas = registros;
+    }
 
     private void OnGenerarPdfClicked(object sender, EventArgs e)
     {
@@ -25,9 +39,17 @@ public partial class MarcasPage : ContentPage
         DisplayAlert("Búsqueda", "Realizar búsqueda...", "Aceptar");
     }
 
-    private void OnCrearNuevoRegistroClicked(object sender, EventArgs e)
+    private async void OnCrearNuevoRegistroClicked(object sender, EventArgs e)
     {
-        DisplayAlert("Nuevo Registro", "Implementa la lógica para crear un nuevo registro.", "Aceptar");
+        try
+        {
+            await Navigation.PushAsync(new CrearMarcaPage());
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"Error : {ex.Message}", "OK");
+            return;
+        }
     }
 
     private void OnEditarClicked(object sender, EventArgs e)

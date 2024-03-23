@@ -2,19 +2,19 @@
 
 namespace AMBEApp.Models
 {
-    public class Marcas
+    public class Modelo
     {
+        [JsonPropertyName("idModelo")]
+        public int IdModelo { get; set; }
+
         [JsonPropertyName("idMarca")]
         public int IdMarca { get; set; }
 
-        [JsonPropertyName("nombreMarca")]
-        public string NombreMarca { get; set; }
+        [JsonPropertyName("nombreModelo")]
+        public string NombreModelo { get; set; }
 
         [JsonPropertyName("estado")]
         public string Estado { get; set; }
-
-        [JsonPropertyName("idInstituto")]
-        public int IdInstituto { get; set; }
 
         [JsonPropertyName("creadoPor")]
         public string CreadoPor { get; set; }
@@ -25,7 +25,7 @@ namespace AMBEApp.Models
         [JsonPropertyName("modificadoPor")]
         public string ModificadoPor { get; set; }
 
-        [JsonPropertyName("fechaDeModificacion")]
+        [JsonPropertyName("fechaModificacion")]
         public DateTime FechaDeModificacion { get; set; }
     }
 }
