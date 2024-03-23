@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AMBEApp.Models
 {
-  public class Grados
+  public class Grado
     {
         [JsonPropertyName("idGrado")]
         public int IdGrado { get; set; }
@@ -16,7 +16,7 @@ namespace AMBEApp.Models
         public int IdInstituto { get; set; }
 
         [JsonPropertyName("grado")]
-        public string Grado { get; set; }
+        public string NombreGrado { get; set; }
 
         [JsonPropertyName("estado")]
         public string Estado { get; set; }

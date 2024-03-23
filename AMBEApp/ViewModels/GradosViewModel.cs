@@ -5,9 +5,9 @@ namespace AMBEApp.ViewModels
 {
     public class GradosViewModel : INotifyPropertyChanged
     {
-        private List<Grados> _grados;
+        private List<Grado> _grados;
 
-        public List<Grados> Grados
+        public List<Grado> Grados
         {
             get => _grados;
             set

@@ -92,6 +92,9 @@
 	  <MauiXaml Update="Pages\Bitacora\BitacoraPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\Grados\CrearGradoPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Grados\GradosPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
