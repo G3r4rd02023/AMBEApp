@@ -154,6 +154,8 @@
           IsVisible="{Binding Administrador}"
           />
 
+       
+
 
     </ShellItem>
 
@@ -166,6 +168,14 @@
              Route="IncidentesPage"
              IsVisible="{Binding Usuario}"
          />
+
+        <ShellContent
+            Icon="clipboard.svg"
+            Title="Registrar Alumno"        
+            ContentTemplate="{DataTemplate personas:AlumnosPage}"
+            Route="AlumnosPage"
+            IsVisible="{Binding Usuario}"
+        />
 
         <ShellContent
           Icon="clipboard.svg"

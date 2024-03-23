@@ -2,7 +2,7 @@
 
 namespace AMBEApp.Models
 {
-    public class Parentescos
+    public class Parentesco
     {
         [JsonPropertyName("idParentesco")]
         public int IdParentesco { get; set; }
@@ -11,19 +11,19 @@ namespace AMBEApp.Models
         public int IdPersonaAlumno { get; set; }
 
         [JsonPropertyName("idPersonaResponsable")]
-        public string IdPersonaResponsable { get; set; }
+        public int IdPersonaResponsable { get; set; }
 
         [JsonPropertyName("idInstituto")]
         public string IdInstituto { get; set; }
 
         [JsonPropertyName("parentesco")]
-        public string Parentesco { get; set; }
+        public string TipoParentesco { get; set; }
 
         [JsonPropertyName("creadoPor")]
         public string CreadoPor { get; set; }
 
         [JsonPropertyName("fechaDeCreacion")]
-        public List<string> FechaDeCreacion { get; set; }
+        public DateTime FechaDeCreacion { get; set; }
 
         [JsonPropertyName("modificadoPor")]
         public string ModificadoPor { get; set; }

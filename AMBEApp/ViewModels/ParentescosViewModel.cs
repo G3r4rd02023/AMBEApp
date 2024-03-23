@@ -6,10 +6,10 @@ namespace AMBEApp.ViewModels
 {
     public class ParentescosViewModel : INotifyPropertyChanged
     {
-        private List<Parentescos> _parentescos;
+        private List<Parentesco> _parentescos;
 
 
-        public List<Parentescos> Parentescos
+        public List<Parentesco> Parentescos
         {
             get => _parentescos;
             set
