@@ -8,10 +8,10 @@
             <Image Source="ramgarlogo.jpg" HeightRequest="79" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" />
 
             <StackLayout Spacing="10" BackgroundColor="White" WidthRequest="330">
-                
                 <Entry x:Name="TxtObjeto" Placeholder="Nombre Objeto" />
                 <Entry x:Name="TxtDescripcion" Placeholder="Descripcion" />
                 <Entry x:Name="TxtTipoObjeto" Placeholder="Tipo Objeto" />
+               
                                
                 <Button Text="Crear" Clicked="CrearObjeto" HorizontalOptions="Center" BackgroundColor="Purple" />
             </StackLayout>

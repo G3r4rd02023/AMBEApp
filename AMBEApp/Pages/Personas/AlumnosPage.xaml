@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AMBEApp.Pages.Personas.AlumnosPage"
+             Title="AlumnosPage">
+
+    <ScrollView>
+        <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center" Padding="20">
+            <Image Source="ramgarlogo.jpg" HeightRequest="79" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" />
+
+            <StackLayout Spacing="10" BackgroundColor="White" WidthRequest="330">
+
+                <Entry x:Name="TxtPrimerNombre" Placeholder="Primer Nombre" />
+                <Entry x:Name="TxtSegundoNombre" Placeholder="Segundo Nombre" />
+                <Entry x:Name="TxtPrimerApellido" Placeholder="PrimerApellido" />
+                <Entry x:Name="TxtSegundoApellido" Placeholder="SegundoApellido" />
+                <DatePicker x:Name="DpFechaNacimiento" TextColor="Black" />
+
+                <Label Text="Género:" TextColor="Black" HorizontalTextAlignment="Start" />
+                <FlexLayout Direction="Row" AlignItems="Center">
+                    <Label Text="M:" TextColor="Black"/>
+                    <CheckBox x:Name="ChkMasculino" Color="Black" />
+                    <Label Text="F:" TextColor="Black"/>
+                    <CheckBox x:Name="ChkFemenino" Color="Black" />
+                </FlexLayout>
+
+               
+
+                <Button  ImageSource="save_disk.svg " Text="" Clicked="CrearAlumno" HorizontalOptions="Fill" BackgroundColor="White" />
+            </StackLayout>
+        </FlexLayout>
+    </ScrollView>
+</ContentPage>

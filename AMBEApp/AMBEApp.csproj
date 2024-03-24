@@ -128,6 +128,9 @@
 	  <MauiXaml Update="Pages\Parentescos\ParentescosPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\Personas\AlumnosPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Personas\PersonasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
