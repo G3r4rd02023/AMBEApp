@@ -21,7 +21,7 @@
 		<Nullable>disable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>AMBEApp</ApplicationTitle>
+		<ApplicationTitle>AMBE</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.ambeapp</ApplicationId>
