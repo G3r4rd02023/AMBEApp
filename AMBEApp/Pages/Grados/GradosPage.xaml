@@ -3,18 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:AMBEApp.ViewModels"
              x:Class="AMBEApp.Pages.Grados.GradosPage"
-             Title="GradosPage">
+             Title="Grados">
 
     <ContentPage.BindingContext>
         <viewModels:GradosViewModel/>
         </ContentPage.BindingContext>
 
-    <ScrollView>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
             <Image
                 Source="ramgarlogo.jpg"
@@ -25,22 +26,55 @@
                 Margin="0,10,10,0"
                 Grid.Row="0" />
 
-           
+                <Button
+                x:Name="CrearNuevoGradoBtn"
+                Text="Nuevo"
+                Clicked="OnCrearNuevoRegistroClicked"
+                BackgroundColor="White"
+                HorizontalOptions="Start"    
+                TextColor="Purple"                
+                HeightRequest="40"
+                BorderWidth="1" 
+                BorderColor="Purple"    
+                ImageSource="add_solid.svg"/>
 
-            <StackLayout
+                <Button
+                 x:Name="GenerarPdfBtn"
+                 Text="PDF" 
+                 Clicked="OnGenerarPdfClicked"
+                 BackgroundColor="White"
+                 TextColor="Purple"
+                 HorizontalOptions="Center"
+                 BorderColor="Purple"
+                 BorderWidth="1"
+                 HeightRequest="40" />
+
+                <!--<Button
+                  x:Name="ImprimirBtn"
+                  Text="Imp" 
+                  Clicked="OnImprimirClicked"
+                  BackgroundColor="White"
+                  TextColor="Purple"
+                  HorizontalOptions="End"
+                  BorderColor="Purple"
+                  BorderWidth="1"
+                  HeightRequest="40" />-->
+
+                <StackLayout
                 Padding="30,0"
                 Spacing="25"
                 Orientation="Vertical"
                 Grid.Row="1">
 
-                <Frame BorderColor="Purple" CornerRadius="5" Padding="5" HasShadow="True">
+
+                    <Frame BorderColor="Purple" CornerRadius="5" Padding="5" HasShadow="True">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Entry Placeholder="Buscar Grado" HorizontalOptions="FillAndExpand" />
+                        <Entry x:Name="txtFiltro" Placeholder="Buscar Grado" HorizontalOptions="FillAndExpand" />
 
                         <Image Grid.Column="1" Source="search_icon.jpg" WidthRequest="20" HeightRequest="20">
                             <Image.GestureRecognizers>
@@ -55,11 +89,16 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                                        <Label Text="{Binding Grado}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Button Text=""
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                                                <Label Text="{Binding NombreGrado}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+
+                                            </StackLayout>
+
+                                            <Button Text=""
                                                 ImageSource="edit_pencil.svg"
-                                                Clicked="OnEditarClicked"
+                                                Clicked="EditarGrado"
                                                 BackgroundColor="White"
                                                 BorderColor="Purple"
                                                 BorderWidth="1"
@@ -82,35 +121,20 @@
                     </ListView>
                 </Frame>
 
-                <Button
-                x:Name="CrearNuevoRegistroBtn"
-                Text="Crear Nuevo Registro"
-                Clicked="OnCrearNuevoRegistroClicked"
-                BackgroundColor="Purple"
-                TextColor="White"
-                HorizontalOptions="Fill"
-                HeightRequest="40" />
-
-                <Button
-                    x:Name="GenerarPdfBtn"
-                    Text="Generar PDF" 
-                    Clicked="OnGenerarPdfClicked"
-                    BackgroundColor="Purple"
-                    TextColor="White"
-                    HorizontalOptions="Fill"
-                    HeightRequest="40" />
-
-                <Button
-                    x:Name="ImprimirBtn"
-                    Text="Imprimir" 
-                    Clicked="OnImprimirClicked"
-                    BackgroundColor="Purple"
-                    TextColor="White"
-                    HorizontalOptions="Fill"
-                    HeightRequest="40" />
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
 
             </StackLayout>
         </Grid>
     </ScrollView>
 
-</ContentPage>
+   </ContentPage.Content>
+    
+ </ContentPage>
