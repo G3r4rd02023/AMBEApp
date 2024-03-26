@@ -84,7 +84,7 @@
 
 
     <ShellContent
-         Icon="Resources/Images/perfil_usuario.png"
+         Icon="Resources/Images/perfil_usuario.jpg"
          Title="Perfil"        
          ContentTemplate="{DataTemplate pages:PerfilPage}"
          Route="PerfilPage"         
