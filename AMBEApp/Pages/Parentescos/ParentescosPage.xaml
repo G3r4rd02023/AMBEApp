@@ -55,12 +55,9 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                                        <Label Text="{Binding IdParentesco}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding IdPersonaAlumno}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding IdPersonaResponsable}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding IdInstituto}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding Parentesco}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+
+                                        <Label Text="{Binding TipoParentesco}" FontAttributes="Bold"  HorizontalOptions="Start" />
 
                                         <Button Text=""
                                                 ImageSource="edit_pencil.svg"

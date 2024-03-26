@@ -14,7 +14,7 @@ namespace AMBEApp.Models
         public int IdPersonaResponsable { get; set; }
 
         [JsonPropertyName("idInstituto")]
-        public string IdInstituto { get; set; }
+        public int IdInstituto { get; set; }
 
         [JsonPropertyName("parentesco")]
         public string TipoParentesco { get; set; }

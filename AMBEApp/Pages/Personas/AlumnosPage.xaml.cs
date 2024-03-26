@@ -29,10 +29,11 @@ public partial class AlumnosPage : ContentPage
             string segundoApellido = TxtSegundoApellido.Text;
             DateTime fechaNacimiento = DpFechaNacimiento.Date;
             string genero = ChkMasculino.IsChecked ? "Masculino" : "Femenino";
+            string tipoParentesco = TxtParentesco.Text;
 
 
 
-            if (!ServicioValidaciones.ValidarEntradas(primerNombre,segundoNombre,primerApellido,segundoApellido))
+            if (!ServicioValidaciones.ValidarEntradas(primerNombre,segundoNombre,primerApellido,segundoApellido,tipoParentesco))
             {
                 await DisplayAlert("Error", "Por favor, completa todos los campos.", "OK");
                 return;
@@ -46,6 +47,7 @@ public partial class AlumnosPage : ContentPage
 
             var nuevoAlumno = new Alumno()
             {
+                IdPersonaResponsable = usuarioEncontrado.IdPersona,
                 IdTipoPersona = 3,
                 IdInstituto = idInstituto,
                 PrimerNombre = primerNombre,
@@ -54,28 +56,30 @@ public partial class AlumnosPage : ContentPage
                 SegundoApellido = segundoApellido,
                 FechaNacimiento = fechaNacimiento,
                 Genero = genero,
+                TipoParentesco = tipoParentesco,
                 CreadoPor = username,
                 FechaCreacion = DateTime.Now,
                 ModificadoPor = username,
-                FechaModificacion = DateTime.Now
+                FechaModificacion = DateTime.Now,
+                Estado = "Activo"
             };
 
             string alumnoJson = System.Text.Json.JsonSerializer.Serialize(nuevoAlumno);
                       
             var httpClient = new HttpClient();
             var content = new StringContent(alumnoJson, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await httpClient.PostAsync("https://ambetest.somee.com/api/Personas", content);
+            HttpResponseMessage response = await httpClient.PostAsync("https://ambetest.somee.com/api/Parentescos", content);
             if (response.IsSuccessStatusCode)
             {
               await DisplayAlert("Éxito", "Alumno creado correctamente", "OK");
 
               int idUsuario = await servicioUsuario.ObtenerIdUsuario(username!);
-              await ServicioBitacora.AgregarRegistro(idUsuario, idInstituto, "Creo", "Personas");
+              await ServicioBitacora.AgregarRegistro(idUsuario, idInstituto, "Creo", "Parentescos");
               await Navigation.PopAsync();
             }
             else
             {
-              await DisplayAlert("Error", "Hubo un problema al crear el alumno. Por favor, intenta nuevamente.", "OK");
+              await DisplayAlert("Error", "Hubo un problema al registrar el alumno. Por favor, intenta nuevamente.", "OK");
             }            
         }
         catch (Exception ex)

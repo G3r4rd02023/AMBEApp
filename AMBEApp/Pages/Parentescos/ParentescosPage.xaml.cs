@@ -1,11 +1,27 @@
+using AMBEApp.Services;
+using AMBEApp.ViewModels;
+
 namespace AMBEApp.Pages.Parentescos;
 
 public partial class ParentescosPage : ContentPage
 {
-	public ParentescosPage()
+    private readonly ParentescosViewModel _viewModel;
+
+    public ParentescosPage()
 	{
 		InitializeComponent();
-	}
+        _viewModel = new ParentescosViewModel();
+        BindingContext = _viewModel;
+        CargarParentescos();
+       
+    }
+
+    private async void CargarParentescos()
+    {
+        ServicioParentesco servicioParentesco = new();
+        var registros = await servicioParentesco.ObtenerLista();
+        _viewModel.Parentescos = registros;
+    }
 
     private void OnGenerarPdfClicked(object sender, EventArgs e)
     {

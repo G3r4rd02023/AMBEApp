@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AMBEApp.Models
+﻿namespace AMBEApp.Models
 {
     public class Alumno
     {
-        public int IdPersona { get; set; }
+        public int IdPersonaAlumno { get; set; }
+
+        public int IdPersonaResponsable { get; set; }
 
         public int IdTipoPersona { get; set; }
 
@@ -25,6 +21,8 @@ namespace AMBEApp.Models
         public DateTime FechaNacimiento { get; set; }
 
         public string Genero { get; set; }
+
+        public string TipoParentesco { get; set; }
 
         public string CreadoPor { get; set; }
 
