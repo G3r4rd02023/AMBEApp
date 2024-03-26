@@ -2,12 +2,12 @@
 
 namespace AMBEApp.Models
 {
-    public class Rutas
+    public class Ruta
     {
-        [JsonPropertyName("idruta")]
+        [JsonPropertyName("idRuta")]
         public int IdRuta { get; set; }
 
-        [JsonPropertyName("idinstituto")]
+        [JsonPropertyName("idInstituto")]
         public int IdInstituto { get; set; }
 
         [JsonPropertyName("nombreRuta")]
@@ -23,7 +23,7 @@ namespace AMBEApp.Models
         public decimal Distancia { get; set; }
 
         [JsonPropertyName("colonias")]
-        public List<string> Colonias { get; set; }
+        public string Colonias { get; set; }
 
         [JsonPropertyName("departamento")]
         public string Departamento { get; set; }

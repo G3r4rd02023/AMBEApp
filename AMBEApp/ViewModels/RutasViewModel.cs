@@ -6,10 +6,10 @@ namespace AMBEApp.ViewModels
 {
     public class RutasViewModel : INotifyPropertyChanged
     {
-        private List<Rutas> _rutas;
+        private List<Ruta> _rutas;
 
 
-        public List<Rutas> Rutas
+        public List<Ruta> Rutas
         {
             get => _rutas;
             set

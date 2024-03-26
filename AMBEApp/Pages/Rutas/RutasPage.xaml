@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AMBEApp.Pages.Rutas.RutasPage"
              xmlns:viewModels="clr-namespace:AMBEApp.ViewModels"
-             Title="RutasPage">
+             Title="Rutas">
 
     <ContentPage.BindingContext>
         <viewModels:RutasViewModel />
@@ -26,6 +26,29 @@
                 Grid.Row="0" />
 
 
+            <Button
+                x:Name="CrearNuevoRegistroBtn"
+                Text="Nuevo"
+                Clicked="OnCrearNuevoRegistroClicked"
+                BackgroundColor="White"
+                HorizontalOptions="Start"    
+                TextColor="Purple"                
+                HeightRequest="40"
+                BorderWidth="1" 
+                BorderColor="Purple"    
+                ImageSource="add_solid.svg"/>
+
+            <Button
+                 x:Name="GenerarPdfBtn"
+                 Text="PDF" 
+                 Clicked="OnGenerarPdfClicked"
+                 BackgroundColor="White"
+                 TextColor="Purple"
+                 HorizontalOptions="Center"
+                 BorderColor="Purple"
+                 BorderWidth="1"
+                 HeightRequest="40" />
+
 
             <StackLayout
                 Padding="30,0"
@@ -40,7 +63,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Entry Placeholder="Buscar Rutas" HorizontalOptions="FillAndExpand" />
+                        <Entry x:Name ="txtFiltro" Placeholder="Buscar Ruta" HorizontalOptions="FillAndExpand" />
 
                         <Image Grid.Column="1" Source="search_icon.jpg" WidthRequest="20" HeightRequest="20">
                             <Image.GestureRecognizers>
@@ -55,17 +78,14 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                                        <Label Text="{Binding Idruta}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding Idinstituto}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding Nombreruta}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding Origen}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding Destino}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding Distanciarecorrida}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding Colonias}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding Departamento}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding Municipio}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding Descripcion}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                                            <Label Text="{Binding NombreRuta}" FontAttributes="Bold" HorizontalOptions="Start" />
+                                            <Label Text="{Binding Origen}" HorizontalOptions="Start" />
+                                            <Label Text="{Binding Destino}" HorizontalOptions="Start" />
+                                        </StackLayout>
+
 
                                         <Button Text=""
                                                 ImageSource="edit_pencil.svg"
@@ -74,7 +94,8 @@
                                                 BorderColor="Purple"
                                                 BorderWidth="1"
                                                 TextColor="Green"
-                                                HeightRequest="40" />
+                                                HeightRequest="40"
+                                                HorizontalOptions="End"/>
                                         <Button Text=""
                                                 ImageSource="trash.svg"
                                                 Clicked="OnEliminarClicked"
@@ -83,41 +104,17 @@
                                                 BorderWidth="1"
                                                 TextColor="Red"
                                                 HeightRequest="40"
-                                                Margin="5, 0, 0, 0" />
+                                                Margin="5, 0, 0, 0" 
+                                                HorizontalOptions="End"/>
 
                                     </StackLayout>
+
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                 </Frame>
-
-                <Button
-                x:Name="CrearNuevoRegistroBtn"
-                Text="Crear Nueva Ruta"
-                Clicked="OnCrearNuevoRegistroClicked"
-                BackgroundColor="Purple"
-                TextColor="White"
-                HorizontalOptions="Fill"
-                HeightRequest="40" />
-
-                <Button
-                    x:Name="GenerarPdfBtn"
-                    Text="Generar PDF" 
-                    Clicked="OnGenerarPdfClicked"
-                    BackgroundColor="Purple"
-                    TextColor="White"
-                    HorizontalOptions="Fill"
-                    HeightRequest="40" />
-
-                <Button
-                    x:Name="ImprimirBtn"
-                    Text="Imprimir" 
-                    Clicked="OnImprimirClicked"
-                    BackgroundColor="Purple"
-                    TextColor="White"
-                    HorizontalOptions="Fill"
-                    HeightRequest="40" />
+             
 
             </StackLayout>
         </Grid>

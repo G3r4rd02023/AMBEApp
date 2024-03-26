@@ -140,6 +140,12 @@
 	  <MauiXaml Update="Pages\Roles\CrearRolPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\Rutas\CrearRutaPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Rutas\EditarRutaPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Rutas\RutasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
