@@ -2,7 +2,7 @@
 
 namespace AMBEApp.Models
 {
-    public class Unidades
+    public class Unidad
     {
         [JsonPropertyName("idUnidad")]
         public int IdUnidad { get; set; }

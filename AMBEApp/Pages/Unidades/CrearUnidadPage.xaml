@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AMBEApp.Pages.Unidades.CrearUnidadPage"
+             Title="CrearUnidadPage">
+
+    <ScrollView>
+        <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center" Padding="20">
+            <Image Source="ramgarlogo.jpg" HeightRequest="79" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" />
+
+            <StackLayout Spacing="10" BackgroundColor="White" WidthRequest="330">
+
+                <Entry x:Name="TxtNumeroUnidad" Placeholder="Numero unidad" />
+                <Entry x:Name="TxtPlaca" Placeholder="Placa" />
+                <Entry x:Name="TxtColor" Placeholder="Color" />
+                <Entry x:Name="TxtCapacidad" Placeholder="Capacidad" />
+                <Entry x:Name="TxtChasis" Placeholder="Chasis" />
+                
+                <Picker x:Name="pickerConductor" Title="Seleccionar Conductor" TextColor="Black" />
+                <Picker x:Name="pickerMarca" Title="Seleccionar Marca" TextColor="Black" />
+                <Picker x:Name="pickerModelo" Title="Seleccionar Modelo" TextColor="Black" />
+
+
+                <Button Text="Nuevo" Clicked="CrearUnidad" HorizontalOptions="Center" BackgroundColor="Purple" />
+            </StackLayout>
+        </FlexLayout>
+    </ScrollView>
+</ContentPage>
+
+

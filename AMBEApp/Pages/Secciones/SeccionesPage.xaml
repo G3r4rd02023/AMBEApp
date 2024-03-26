@@ -58,7 +58,10 @@
                             <DataTemplate>
                                 <ViewCell>
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                                        <Label Text="{Binding Seccion}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding NombreSeccion}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding IdGrado}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding IdInstituto}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding Estado}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
                                         <Button Text=""
                                                 ImageSource="edit_pencil.svg"
                                                 Clicked="OnEditarClicked"

@@ -47,5 +47,23 @@ namespace AMBEApp.Services
                 return false;
             }
         }
+
+
+        public async Task<int> ObtenerIdModeloPorNombre(string nombreModelo)
+        {
+            try
+            {
+                var modelos = await ObtenerLista();
+                var modelo = modelos.FirstOrDefault(r => r.NombreModelo == nombreModelo);
+                return modelo != null ? modelo.IdModelo : -1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener los modelos: {ex.Message}");
+                return -1;
+            }
+        }
+
+
     }
 }

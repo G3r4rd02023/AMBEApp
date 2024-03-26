@@ -7,9 +7,9 @@ namespace AMBEApp.ViewModels
     public class UnidadesViewModel : INotifyPropertyChanged
     {
 
-        private List<Unidades> _unidades;
+        private List<Unidad> _unidades;
 
-        public List<Unidades> Unidades
+        public List<Unidad> Unidades
         {
             get => _unidades;
             set

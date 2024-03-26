@@ -2,7 +2,7 @@
 
 namespace AMBEApp.Models
 {
-    public class Secciones
+    public class Seccion
     {
         [JsonPropertyName("idSeccion")]
         public int IdSeccion { get; set; }
@@ -14,7 +14,7 @@ namespace AMBEApp.Models
         public int IdGrado { get; set; }
 
         [JsonPropertyName("seccion ")]
-        public string Seccion { get; set; }
+        public string NombreSeccion { get; set; }
 
         [JsonPropertyName("estado")]
         public string Estado { get; set; }
