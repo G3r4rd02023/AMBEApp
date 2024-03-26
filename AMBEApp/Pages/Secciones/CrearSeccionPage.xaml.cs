@@ -27,7 +27,7 @@ public partial class CrearSeccionPage : ContentPage
         }
     }
 
-    private async void CrearGrado(object sender, EventArgs e)
+    private async void CrearSeccion(object sender, EventArgs e)
     {
         try
         {
