@@ -53,6 +53,24 @@ namespace AMBEApp.Services
             }
         }
 
+        //obtener id por nombre
+        public async Task<int> ObtenerIdGradoPorNombre(string nombreGrado)
+        {
+            try
+            {
+                var grados = await ObtenerLista();
+                var grado = grados.FirstOrDefault(r => r.NombreGrado == nombreGrado);
+                return grado != null ? grado.IdGrado : -1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener los roles: {ex.Message}");
+                return -1;
+            }
+        }
+
+
+
         public async Task<bool> ActualizarGrado(string gradoJson, Grado gradoEditado)
         {
             try

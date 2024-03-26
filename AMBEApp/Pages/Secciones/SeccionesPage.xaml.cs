@@ -1,11 +1,26 @@
+using AMBEApp.Services;
+using AMBEApp.ViewModels;
+
 namespace AMBEApp.Pages.Secciones;
 
 public partial class SeccionesPage : ContentPage
 {
-	public SeccionesPage()
+
+    private readonly SeccionesViewModel _viewModel;
+    public SeccionesPage()
 	{
 		InitializeComponent();
-	}
+        _viewModel = new SeccionesViewModel();
+        BindingContext = _viewModel;
+        CargarSecciones();
+    }
+
+    private async void CargarSecciones()
+    {
+        ServicioSeccion servicioSeccion = new();
+        var registros = await servicioSeccion.ObtenerLista();
+        _viewModel.Secciones = registros;
+    }
 
     private void OnGenerarPdfClicked(object sender, EventArgs e)
     {
@@ -25,9 +40,17 @@ public partial class SeccionesPage : ContentPage
         DisplayAlert("Búsqueda", "Realizar búsqueda...", "Aceptar");
     }
 
-    private void OnCrearNuevoRegistroClicked(object sender, EventArgs e)
+    private async void OnCrearNuevoRegistroClicked(object sender, EventArgs e)
     {
-        DisplayAlert("Nuevo Registro", "Implementa la lógica para crear un nuevo registro.", "Aceptar");
+        try
+        {
+            await Navigation.PushAsync(new CrearSeccionPage());
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"Error : {ex.Message}", "OK");
+            return;
+        }
     }
 
     private void OnEditarClicked(object sender, EventArgs e)

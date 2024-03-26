@@ -6,8 +6,8 @@ namespace AMBEApp.ViewModels
 {
     public class SeccionesViewModel : INotifyPropertyChanged
     {
-        private List<Secciones> _secciones;
-        public List<Secciones> Secciones
+        private List<Seccion> _secciones;
+        public List<Seccion> Secciones
         {
             get => _secciones;
             set

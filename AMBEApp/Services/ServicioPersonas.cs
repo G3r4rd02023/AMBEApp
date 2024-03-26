@@ -30,5 +30,22 @@ namespace AMBEApp.Services
             }
         }
 
+        public async Task<int> ObtenerIdPersonaPorNombre(string nombrePersona)
+        {
+            try
+            {
+                var personas = await ObtenerLista();
+                var persona = personas.FirstOrDefault(r => r.NombreCompleto == nombrePersona);
+                return persona != null ? persona.IdPersona : -1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener los tipos de persona: {ex.Message}");
+                return -1;
+            }
+        }
+
+
+
     }
 }

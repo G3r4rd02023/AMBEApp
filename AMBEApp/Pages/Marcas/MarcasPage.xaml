@@ -41,7 +41,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Entry Placeholder="Buscar Marca" HorizontalOptions="FillAndExpand" />
+                        <Entry x:Name ="txtFiltro" Placeholder="Buscar Marca" HorizontalOptions="FillAndExpand" />
 
                         <Image Grid.Column="1" Source="search_icon.jpg" WidthRequest="20" HeightRequest="20">
                             <Image.GestureRecognizers>
