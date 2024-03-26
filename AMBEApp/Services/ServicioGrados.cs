@@ -100,7 +100,7 @@ namespace AMBEApp.Services
             }
         }
 
-        public async Task<bool> EliminarObjeto(int idGrado)
+        public async Task<bool> EliminarGrado(int idGrado)
         {
             try
             {
